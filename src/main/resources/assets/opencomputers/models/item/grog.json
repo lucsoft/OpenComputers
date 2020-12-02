@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0":"opencomputers:item/nuggetiron"
+        "layer0":"opencomputers:item/grog"
     }
 }
