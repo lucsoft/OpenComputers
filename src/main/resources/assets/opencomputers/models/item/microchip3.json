@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0":"opencomputers:item/chip1"
+        "layer0":"opencomputers:item/microchip3"
     }
 }
