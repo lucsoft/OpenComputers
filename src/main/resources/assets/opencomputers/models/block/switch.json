@@ -1,8 +1,0 @@
-{
-    "parent": "block/cube_bottom_top",
-    "textures": {
-        "top": "opencomputers:blocks/switch_top",
-        "bottom": "opencomputers:blocks/generic_top",
-        "side": "opencomputers:blocks/switch_side"
-    }
-}

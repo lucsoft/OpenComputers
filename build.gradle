@@ -1,229 +1,82 @@
-// For those who want the bleeding edge
-buildscript {
-    repositories {
-        jcenter()
-        maven {
-            name = "forge"
-            url = "https://files.minecraftforge.net/maven"
-        }
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-    }
-}
-
 plugins {
-    id "com.matthewprenger.cursegradle" version "1.0.9"
+	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'maven-publish'
 }
 
-apply plugin: 'scala'
-apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'maven-publish'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
-
-file "build.properties" withReader {
-    def prop = new Properties()
-    prop.load(it)
-    ext.config = new ConfigSlurper().parse prop
-}
-
-version = config.mod.version
-group = config.mod.group
-archivesBaseName = config.mod.name
-
-def getGitRef() {
-    try {
-        def stdout = new ByteArrayOutputStream()
-        exec {
-            commandLine 'git', 'rev-parse', '--short', 'HEAD'
-            standardOutput = stdout
-        }
-        return stdout.toString().trim()
-    } catch (Throwable e) {
-        return "unknown"
-    }
-}
-
-if (System.getenv("PROMOTED_NUMBER") != null)
-    version += ".${System.getenv("PROMOTED_NUMBER")}"
-else if (System.getenv("BUILD_NUMBER") != null)
-    version += ".${System.getenv("BUILD_NUMBER")}"
-else
-    version += "+" + getGitRef()
-
-ext.simpleVersion = version
-version = "MC${config.minecraft.version}-${project.version}"
-
-minecraft {
-    version = "${config.minecraft.version}-${config.forge.version}"
-    runDir = "run"
-
-    mappings = config.minecraft.mappings
-
-    replace "@VERSION@", project.simpleVersion
-    replace "/*@MCVERSIONDEP@*/", ", acceptedMinecraftVersions = \"[${config.minecraft.version}]\""
-}
-
-repositories {
-    maven { url "https://maven.cil.li/" }
-    maven { url "https://minecraft.curseforge.com/api/maven/" }
-}
-
-configurations {
-    embedded
-    compile.extendsFrom provided, embedded
-}
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
 
 dependencies {
-    deobfCompile ("li.cil.tis3d:TIS-3D:MC1.12-${config.tis3d.version}") {
-        exclude module: "jei_1.12"
-    }
-    deobfCompile "com.mod-buildcraft:buildcraft-api:${config.buildcraft.version}"
-    deobfCompile "MCMultiPart2:MCMultiPart-exp:${config.mcmp.version}"
-    provided ("net.sengir.forestry:forestry_1.12.2:${config.forestry.version}") {
-        exclude module: "jei_1.12"
-    }
-    deobfCompile "net.industrial-craft:industrialcraft-2:${config.ic2.version}"
-    deobfCompile "mcp.mobius.waila:Hwyla:${config.hwyla.version}:api"
-    deobfCompile "dan200.computercraft:ComputerCraft:${config.cc.version}"
-    deobfCompile "charset:Charset:${config.charset.version}:api"
-    
-    provided ("appeng:appliedenergistics2:${config.ae2.version}:api") {
-        transitive = false
-    }
-    provided "extracells2:ExtraCells-api:${config.extracells.version}"
-    
-    provided("mekanism:Mekanism:${config.mekanism.version}:api") {
-        transitive = false
-    }
+	// To change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    provided ("codechicken:ForgeMultipart:${config.minecraft.version}-${config.forgemultipart.version}:universal") {
-        exclude module: "jei_1.12"
-        exclude module: "CodeChickenLib"
-    }
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    provided ("codechicken:ChickenASM:${config.casm.version}")
-
-    provided "mezz.jei:jei_${config.minecraft.version}:${config.jei.version}"
-    provided "codechicken:CodeChickenLib:${config.minecraft.version}-${config.ccl.version}:universal"
-    provided "codechicken:WR-CBE:${config.minecraft.version}-${config.wrcbe.version}:universal"
-
-    provided ("mrtjp:ProjectRed:${config.projred.version}:Base") {
-        exclude module: "NotEnoughItems"
-        exclude module: "CodeChickenLib"
-        exclude module: "jei_1.12"
-        exclude module: "ForgeMultipart"
-    }
-
-    provided ("mrtjp:ProjectRed:${config.projred.version}:integration") {
-        exclude module: "NotEnoughItems"
-        exclude module: "CodeChickenLib"
-        exclude module: "jei_1.12"
-        exclude module: "ForgeMultipart"
-    }
-
-    provided ("mrtjp:MrTJPCore:${config.mrtjpcore.version}:universal") {
-        exclude module: "NotEnoughItems"
-        exclude module: "CodeChickenLib"
-        exclude module: "jei_1.12"
-        exclude module: "ForgeMultipart"
-    }
-
-    embedded files('libs/OpenComputers-JNLua.jar', 'libs/OpenComputers-LuaJ.jar')
-
-    testCompile "org.mockito:mockito-all:1.10.19"
-
-    provided "codechicken:EnderStorage:${config.minecraft.version}-${config.enderstorage.version}:universal"
+	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
+	// You may need to force-disable transitiveness on them.
 }
 
 processResources {
-    inputs.property "version", project.simpleVersion
-    inputs.property "mcversion", project.minecraft.version
-    inputs.property "fversion", config.forge.version
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version':project.simpleVersion, 'mcversion':project.minecraft.version, 'fversion':config.forge.version
-    }
-    from(sourceSets.main.resources.srcDirs) {
-        include 'application.conf'
-        filter { line ->
-            line.replaceAll("@VERSION@", project.simpleVersion)
-        }
-    }
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-        exclude 'application.conf'
-    }
+	inputs.property "version", project.version
 
-    // Move access transformer to META-INF
-    rename '(.+_at.cfg)', 'META-INF/$1'
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
 }
 
-allprojects {
-    tasks.withType(Javadoc) {
-        options.addStringOption('Xdoclint:none', '-quiet')
-    }
+tasks.withType(JavaCompile).configureEach {
+	// ensure that the encoding is set to UTF-8, no matter what the system default is
+	// this fixes some edge cases with special characters not displaying correctly
+	// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
+	// If Javadoc is generated, this must be specified in that task too.
+	it.options.encoding = "UTF-8"
+
+	// The Minecraft launcher currently installs Java 8 for users, so your mod probably wants to target Java 8 too
+	// JDK 9 introduced a new way of specifying this that will make sure no newer classes or methods are used.
+	// We'll use that if it's available, but otherwise we'll use the older option.
+	def targetVersion = 8
+	if (JavaVersion.current().isJava9Compatible()) {
+		 it.options.release = targetVersion
+	}
+}
+
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
 }
 
 jar {
-    configurations.embedded.each { dep ->
-        from(project.zipTree(dep)) {
-            exclude 'META-INF', 'META-INF/**'
-        }
-    }
-    manifest {
-        attributes FMLCorePlugin: "li.cil.oc.common.launch.TransformerLoader"
-        attributes FMLCorePluginContainsFMLMod: "true"
-        attributes FMLAT: "oc_at.cfg"
-    }
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}"}
+	}
 }
 
-javadoc {
-    include 'li/cil/oc/api/**'
-}
-
-task apiJar(type: Jar) {
-    from sourceSets.main.allSource
-    from sourceSets.main.output
-    classifier = 'api'
-    include 'li/cil/oc/api/**'
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    from javadoc.destinationDir
-    classifier 'javadoc'
-}
-
-artifacts {
-    archives apiJar
-    archives javadocJar
-}
-
+// configure the maven publication
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-            artifact apiJar
-            artifact javadocJar
-        }
-    }
-    repositories {
-        maven {
-            url System.getenv("MAVEN_PATH")
-        }
-    }
-}
+	publications {
+		mavenJava(MavenPublication) {
+			// add all the jars that should be included when publishing to maven
+			artifact(remapJar) {
+				builtBy remapJar
+			}
+			artifact(sourcesJar) {
+				builtBy remapSourcesJar
+			}
+		}
+	}
 
-curseforge {
-    apiKey = project.hasProperty("curseForgeApiKey") ? project.curseForgeApiKey : ""
-    project {
-        id = config.curse.project.id
-        releaseType = config.curse.project.releaseType
-        changelogType = "markdown"
-        changelog = file("changelog.md")
-        addGameVersion config.minecraft.version
-        addGameVersion "Java 8"
-    }
+	// Select the repositories you want to publish to
+	// To publish to maven local, no extra repositories are necessary. Just use the task `publishToMavenLocal`.
+	repositories {
+		// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	}
 }
