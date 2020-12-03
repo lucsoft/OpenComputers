@@ -2,6 +2,6 @@
     "parent": "minecraft:item/generated",
     "textures": {
         "layer0":"opencomputers:item/hoverboots",
-        "layer1": "0": "opencomputers:item/hoverbootslight"
+        "layer1":"opencomputers:item/hoverbootslight"
     }
 }

@@ -19,13 +19,25 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "li.cli.oc.OpenComputers"
+      {
+        "adapter": "kotlin",
+        "value": "li.cli.oc.OpenComputers"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "li.cli.oc.client.ClientInit"
+      }
     ]
   },
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
     "minecraft": "1.16.x"
+  },
+  "requires": {
+    "fabric-language-kotlin": ">=1.4.0"
   },
   "suggests": {
   }
