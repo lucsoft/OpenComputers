@@ -1,8 +1,6 @@
 package li.cli.oc
 
-import li.cli.oc.blocks.Case
-import li.cli.oc.blocks.CaseEntity
-import li.cli.oc.blocks.Screen
+import li.cli.oc.blocks.*
 import li.cli.oc.items.gadgets.Analyzer
 import li.cli.oc.items.gadgets.commons.ComponentBlockItem
 import li.cli.oc.items.gadgets.commons.ComponentItem
@@ -17,26 +15,67 @@ object Components {
     var caseEntityType: BlockEntityType<*>? = null
 
     enum class Blocks(val id: String, val block: Block) {
-        ScreenOne("screen1", Screen(1)),
-        ScreenTwo("screen2", Screen(2)),
-        ScreenThree("screen3", Screen(3)),
-
+        Adapter("adapter", Adapter()),
+        Assembler("assembler", Assembler()),
+        Cable("cable", Cable()),
+        Capacitor("capacitor", Capacitor()),
+        CarpatedCapacitor("carpetedcapacitor", CarpetedCapacitor()),
         CaseOne("case1", Case(1)),
         CaseTwo("case2", Case(2)),
         CaseThree("case3", Case(3)),
-        CaseCreative("casecreative", Case(4))
+        CaseCreative("casecreative", Case(4)),
+        Charger("charger", Charger()),
+        Disassembler("disaaembler", Disassembler()),
+        DiskDrive("diskdrive", DiskDrive()),
+        HologramOne("hologram1", Hologram()),
+        HologramTweo("hologram2", Hologram()),
+        Keyboard("keyboard", Keyboard()),
+        MotionSensor("motionsensor", MotionSensor()),
+        Netspliter("netspliter", Netspliter()),
+        PowerConverter("powerconverter", PowerConverter()),
+        PowerDistributer("powerdistributer", PowerDistributer()),
+        Printer("printer", Printer()),
+        Rack("rack", Rack()),
+        Raid("raid", Raid()),
+        RedstoneIO("redstoneio", RedstoneIO()),
+        Relay("relay", Relay()),
+        ScreenOne("screen1", Screen(1)),
+        ScreenTwo("screen2", Screen(2)),
+        ScreenThree("screen3", Screen(3)),
+        Transposer("transposer", Transposer()),
+        Waypoint("waypoint", Waypoint()),
     }
 
     enum class Items(val id: String, val item: Item) {
-
-        ScreenOne("screen1", ComponentBlockItem(Blocks.ScreenOne.block)),
-        ScreenTwo("screen2", ComponentBlockItem(Blocks.ScreenTwo.block)),
-        ScreenThree("screen3", ComponentBlockItem(Blocks.ScreenThree.block)),
-
-        CaseOne("case1", ComponentBlockItem(Blocks.CaseOne.block)),
-        CaseTwo("case2", ComponentBlockItem(Blocks.CaseTwo.block)),
-        CaseThree("case3", ComponentBlockItem(Blocks.CaseThree.block)),
-        CaseCreative("casecreative", ComponentBlockItem(Blocks.CaseCreative.block)),
+        Adapter(Blocks.Adapter.id, ComponentBlockItem(Blocks.Adapter.block)),
+        Assembler(Blocks.Assembler.id, ComponentBlockItem(Blocks.Assembler.block)),
+        Cable(Blocks.Cable.id, ComponentBlockItem(Blocks.Cable.block)),
+        Capacitor(Blocks.Capacitor.id, ComponentBlockItem(Blocks.Capacitor.block)),
+        CarpatedCapacitor(Blocks.CarpatedCapacitor.id, ComponentBlockItem(Blocks.CarpatedCapacitor.block)),
+        CaseOne(Blocks.CaseOne.id, ComponentBlockItem(Blocks.CaseOne.block)),
+        CaseTwo(Blocks.CaseTwo.id, ComponentBlockItem(Blocks.CaseTwo.block)),
+        CaseThree(Blocks.CaseThree.id, ComponentBlockItem(Blocks.CaseThree.block)),
+        CaseCreative(Blocks.CaseCreative.id, ComponentBlockItem(Blocks.CaseCreative.block)),
+        Charger(Blocks.Charger.id, ComponentBlockItem(Blocks.Charger.block)),
+        Disassembler(Blocks.Disassembler.id, ComponentBlockItem(Blocks.Disassembler.block)),
+        DiskDrive(Blocks.DiskDrive.id, ComponentBlockItem(Blocks.DiskDrive.block)),
+        HologramOne(Blocks.HologramOne.id, ComponentBlockItem(Blocks.HologramOne.block)),
+        HologramTweo(Blocks.HologramTweo.id, ComponentBlockItem(Blocks.HologramTweo.block)),
+        Keyboard(Blocks.Keyboard.id, ComponentBlockItem(Blocks.Keyboard.block)),
+        MotionSensor(Blocks.MotionSensor.id, ComponentBlockItem(Blocks.MotionSensor.block)),
+        Netspliter(Blocks.Netspliter.id, ComponentBlockItem(Blocks.Netspliter.block)),
+        PowerConverter(Blocks.PowerConverter.id, ComponentBlockItem(Blocks.PowerConverter.block)),
+        PowerDistributer(Blocks.PowerDistributer.id, ComponentBlockItem(Blocks.PowerDistributer.block)),
+        Printer(Blocks.Printer.id, ComponentBlockItem(Blocks.Printer.block)),
+        Rack(Blocks.Rack.id, ComponentBlockItem(Blocks.Rack.block)),
+        Raid(Blocks.Raid.id, ComponentBlockItem(Blocks.Raid.block)),
+        RedstoneIO(Blocks.RedstoneIO.id, ComponentBlockItem(Blocks.RedstoneIO.block)),
+        Relay(Blocks.Relay.id, ComponentBlockItem(Blocks.Relay.block)),
+        ScreenOne(Blocks.ScreenOne.id, ComponentBlockItem(Blocks.ScreenOne.block)),
+        ScreenTwo(Blocks.ScreenTwo.id, ComponentBlockItem(Blocks.ScreenTwo.block)),
+        ScreenThree(Blocks.ScreenThree.id, ComponentBlockItem(Blocks.ScreenThree.block)),
+        Transposer(Blocks.Transposer.id, ComponentBlockItem(Blocks.Transposer.block)),
+        Waypoint(Blocks.Waypoint.id, ComponentBlockItem(Blocks.Waypoint.block)),
 
         Cpu1("cpu1",ComponentItem()),
         Cpu2("cpu2",ComponentItem()),
@@ -78,7 +117,6 @@ object Components {
         Numpad("numpad", ComponentItem()),
         Inkcartridge("inkcartridge", ComponentItem()),
         Inkcartridgeempty("inkcartridgeempty", ComponentItem()),
-        Chamelium("chamelium", ComponentItem()),
         Card("card", ComponentItem()),
         Redstonecard1("redstonecard1", ComponentItem()),
         Redstonecard2("redstonecard2", ComponentItem()),

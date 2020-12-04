@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "oc",
+  "id": "opencomputers",
   "version": "${version}",
 
   "name": "Open Computers",
@@ -14,7 +14,7 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/oc/icon.png",
+  "icon": "assets/opencomputers/icon.png",
 
   "environment": "*",
   "entrypoints": {

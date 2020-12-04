@@ -1,8 +1,8 @@
 {
     "parent": "block/cube_bottom_top",
     "textures": {
-        "bottom": "opencomputers:blocks/adapter_top",
-        "top": "opencomputers:blocks/adapter_top",
-        "side": "opencomputers:blocks/adapter_side"
+        "bottom": "opencomputers:block/adapter_top",
+        "top": "opencomputers:block/adapter_top",
+        "side": "opencomputers:block/adapter_side"
     }
 }

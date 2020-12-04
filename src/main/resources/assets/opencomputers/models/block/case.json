@@ -1,13 +1,13 @@
 {
     "parent": "block/block",
     "textures": {
-        "down": "opencomputers:blocks/case_top",
-        "up": "opencomputers:blocks/case_top",
-        "north": "opencomputers:blocks/case_front",
-        "east": "opencomputers:blocks/case_side",
-        "south": "opencomputers:blocks/case_back",
-        "west": "opencomputers:blocks/case_side",
-        "particle": "opencomputers:blocks/generic_top"
+        "down": "opencomputers:block/case_top",
+        "up": "opencomputers:block/case_top",
+        "north": "opencomputers:block/case_front",
+        "east": "opencomputers:block/case_side",
+        "south": "opencomputers:block/case_back",
+        "west": "opencomputers:block/case_side",
+        "particle": "opencomputers:block/generic_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

@@ -5,8 +5,10 @@ import li.cli.oc.blocks.Case
 import li.cli.oc.blocks.Screen
 import li.cli.oc.items.gadgets.commons.ComponentBlockItem
 import net.fabricmc.api.ClientModInitializer
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry
 import net.minecraft.block.BlockState
+import net.minecraft.client.render.RenderLayer
 import net.minecraft.item.ItemStack
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.BlockRenderView
@@ -32,6 +34,8 @@ object ClientInit : ClientModInitializer {
             Components.Items.ScreenTwo.item,
             Components.Items.ScreenThree.item,
         )
+
+//        BlockRenderLayerMap.INSTANCE.putBlock(Components.Blocks.Assembler.block, RenderLayer.getCutout());
     }
 
     private  val handleItemColor = fun (item: ItemStack, tintIndex: Int): Int {
