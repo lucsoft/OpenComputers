@@ -1,9 +1,9 @@
 {
     "parent": "block/orientable",
     "textures": {
-        "top": "opencomputers:blocks/microcontroller_top",
-        "bottom": "opencomputers:blocks/microcontroller_top",
-        "side": "opencomputers:blocks/microcontroller_side",
-        "front": "opencomputers:blocks/microcontroller_front"
+        "top": "opencomputers:block/microcontroller_top",
+        "bottom": "opencomputers:block/microcontroller_top",
+        "side": "opencomputers:block/microcontroller_side",
+        "front": "opencomputers:block/microcontroller_front"
     }
 }

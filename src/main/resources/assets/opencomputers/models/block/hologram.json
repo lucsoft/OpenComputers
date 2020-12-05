@@ -1,9 +1,9 @@
 {
     "parent": "block/block",
     "textures": {
-        "bottom": "opencomputers:blocks/generic_top",
-        "side": "opencomputers:blocks/hologram_side",
-        "particle": "opencomputers:blocks/generic_top"
+        "bottom": "opencomputers:block/generic_top",
+        "side": "opencomputers:block/hologram_side",
+        "particle": "opencomputers:block/generic_top"
     },
     "elements": [
         {   "from": [ 4, 0, 4 ],

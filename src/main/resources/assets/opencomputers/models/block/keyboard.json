@@ -1,8 +1,8 @@
 {
     "parent": "block/block",
     "textures": {
-        "all": "opencomputers:blocks/keyboard",
-        "particle": "opencomputers:blocks/generic_top"
+        "all": "opencomputers:block/keyboard",
+        "particle": "opencomputers:block/generic_top"
     },
     "elements": [
         {   "from": [ 1, 4, 15 ],

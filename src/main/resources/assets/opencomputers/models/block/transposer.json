@@ -1,10 +1,10 @@
 {
     "parent": "block/block",
     "textures": {
-        "bottom": "opencomputers:blocks/transposer_top",
-        "top": "opencomputers:blocks/transposer_top",
-        "side": "opencomputers:blocks/transposer_side",
-        "particle": "opencomputers:blocks/generic_top"
+        "bottom": "opencomputers:block/transposer_top",
+        "top": "opencomputers:block/transposer_top",
+        "side": "opencomputers:block/transposer_side",
+        "particle": "opencomputers:block/generic_top"
     },
     "elements": [
         {   "from": [ 0, 0, 0 ],

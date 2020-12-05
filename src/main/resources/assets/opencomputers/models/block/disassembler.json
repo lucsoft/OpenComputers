@@ -1,8 +1,8 @@
 {
     "parent": "block/cube_bottom_top",
     "textures": {
-        "bottom": "opencomputers:blocks/generic_top",
-        "top": "opencomputers:blocks/disassembler_top",
-        "side": "opencomputers:blocks/disassembler_side"
+        "bottom": "opencomputers:block/generic_top",
+        "top": "opencomputers:block/disassembler_top",
+        "side": "opencomputers:block/disassembler_side"
     }
 }
