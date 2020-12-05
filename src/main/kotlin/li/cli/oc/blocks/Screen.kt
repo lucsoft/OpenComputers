@@ -1,21 +1,17 @@
 package li.cli.oc.blocks;
 
-import li.cli.oc.Components
-import li.cli.oc.blocks.commons.RedstoneAware;
-import li.cli.oc.blocks.commons.RedstoneAwareEntity;
+import li.cli.oc.blocks.commons.TecBlock;
 import li.cli.oc.blocks.commons.States
 import li.cli.oc.render.Color
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.*
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.item.ItemPlacementContext
 import net.minecraft.state.StateManager
-import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView;
 
-class Screen(var Tear: Int) : RedstoneAware(FabricBlockSettings.of(Material.METAL)) {
+class Screen(var Tear: Int) : TecBlock(FabricBlockSettings.of(Material.METAL)) {
 
 
     override fun getColor(): Int {

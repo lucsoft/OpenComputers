@@ -2,6 +2,7 @@ package li.cli.oc.blocks.commons;
 
 
 import li.cli.oc.render.Color
+import net.minecraft.block.BlockRenderType
 import net.minecraft.block.BlockState
 import net.minecraft.block.BlockWithEntity
 import net.minecraft.block.entity.BlockEntity
@@ -9,7 +10,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView
 
-open class RedstoneAware(settings: Settings?) : BlockWithEntity(settings) {
+open class TecBlock(settings: Settings?) : BlockWithEntity(settings) {
 
     open fun getColor(): Int? {
         return null;
@@ -32,4 +33,7 @@ open class RedstoneAware(settings: Settings?) : BlockWithEntity(settings) {
         return entity.getOutput(direction!!);
     }
 
+    override fun getRenderType(state: BlockState?): BlockRenderType {
+        return BlockRenderType.MODEL;
+    }
 }
