@@ -1,20 +1,28 @@
 package li.cli.oc.client
 
 import li.cli.oc.Components
+import li.cli.oc.OpenComputers
+import li.cli.oc.blocks.CableModel
 import li.cli.oc.blocks.Case
 import li.cli.oc.blocks.Screen
 import li.cli.oc.items.gadgets.commons.ComponentBlockItem
+import li.cli.oc.render.BaseModelProvider
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
+import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.client.render.RenderLayer
 import net.minecraft.item.ItemStack
+import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.BlockRenderView
 
 object ClientInit : ClientModInitializer {
     override fun onInitializeClient() {
+
+        ModelLoadingRegistry.INSTANCE.registerResourceProvider { BaseModelProvider(Identifier(OpenComputers.modId, "block/cable"), CableModel()) }
+
         ColorProviderRegistry.BLOCK.register(handleBlockColor,
             Components.Blocks.CaseOne.block,
             Components.Blocks.CaseTwo.block,
@@ -34,8 +42,6 @@ object ClientInit : ClientModInitializer {
             Components.Items.ScreenTwo.item,
             Components.Items.ScreenThree.item,
         )
-
-//        BlockRenderLayerMap.INSTANCE.putBlock(Components.Blocks.Assembler.block, RenderLayer.getCutout());
     }
 
     private  val handleItemColor = fun (item: ItemStack, tintIndex: Int): Int {
