@@ -1,10 +1,11 @@
 {
-    "parent": "opencomputers:block/screen",
-    "display": {
-        "thirdperson": {
-            "rotation": [ 10, -45, 170 ],
-            "translation": [ 0, 1.5, -2.75 ],
-            "scale": [ 0.375, 0.375, 0.375 ]
-        }
+    "parent": "block/cube",
+    "textures": {
+        "down": "opencomputers:block/screen/b2",
+        "up":    "opencomputers:block/screen/b2",
+        "north": "opencomputers:block/screen/b2",
+        "south": "opencomputers:block/screen/b2",
+        "west": "opencomputers:block/screen/b2",
+        "east": "opencomputers:block/screen/f2"
     }
 }

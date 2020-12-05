@@ -1,10 +1,25 @@
 {
-    "parent": "opencomputers:block/screen",
-    "display": {
-        "thirdperson": {
-            "rotation": [ 10, -45, 170 ],
-            "translation": [ 0, 1.5, -2.75 ],
-            "scale": [ 0.375, 0.375, 0.375 ]
+    "parent": "block/cube",
+    "textures": {
+        "down": "opencomputers:block/screen/b2",
+        "up":    "opencomputers:block/screen/b2",
+        "north": "opencomputers:block/screen/b2",
+        "south": "opencomputers:block/screen/b2",
+        "west": "opencomputers:block/screen/b2",
+        "east": "opencomputers:block/screen/f2"
+    },
+    "elements": [
+        {
+            "from": [ 0, 0, 0 ],
+            "to": [ 16, 16, 16 ],
+            "faces": {
+                "down":  { "texture": "#down","tintindex": 0, "cullface": "down" },
+                "up":    { "texture": "#up","tintindex": 0, "cullface": "up" },
+                "north": { "texture": "#north","tintindex": 0, "cullface": "north" },
+                "south": { "texture": "#south","tintindex": 0, "cullface": "south" },
+                "west":  { "texture": "#west", "tintindex": 0,"cullface": "west" },
+                "east":  { "texture": "#east","tintindex": 0, "cullface": "east" }
+            }
         }
-    }
+    ]
 }
