@@ -1,4 +1,4 @@
-package li.cli.oc.items.gadgets.commons
+package li.cli.oc.items.commons
 
 import li.cli.oc.OpenComputers
 import net.minecraft.item.Item

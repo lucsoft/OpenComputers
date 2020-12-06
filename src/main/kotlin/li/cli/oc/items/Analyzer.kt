@@ -1,4 +1,4 @@
-package li.cli.oc.items.gadgets
+package li.cli.oc.items
 
 import li.cli.oc.OpenComputers
 import net.minecraft.entity.player.PlayerEntity
