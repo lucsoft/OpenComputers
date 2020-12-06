@@ -10,9 +10,14 @@ import net.minecraft.block.Material
 import net.minecraft.item.ItemPlacementContext
 import net.minecraft.state.StateManager
 import net.minecraft.util.math.Direction
+import net.minecraft.util.shape.VoxelShapes
+import net.minecraft.block.ShapeContext
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.shape.VoxelShape
+import net.minecraft.world.BlockView
 
 
-class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque().noCollision()) {
+class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
 
     val pitch = States.Pitch;
     val yaw = States.Yaw;
@@ -38,5 +43,14 @@ class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque().noCo
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
         builder!!.add(States.Pitch, States.Yaw);
+    }
+
+    override fun getOutlineShape(state: BlockState?, view: BlockView?, pos: BlockPos?, context: ShapeContext?): VoxelShape? {
+        //TODO Add more shape styles
+        return when(state?.get(yaw)) {
+            Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.0, 0.25, 0.94, 0.07, 0.75)
+            Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.0, 0.06, 0.75, 0.07, 0.94)
+            else -> null!!
+        }
     }
 }

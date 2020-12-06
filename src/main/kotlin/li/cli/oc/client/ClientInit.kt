@@ -5,7 +5,7 @@ import li.cli.oc.OpenComputers
 import li.cli.oc.blocks.CableModel
 import li.cli.oc.blocks.Case
 import li.cli.oc.blocks.Screen
-import li.cli.oc.items.gadgets.commons.ComponentBlockItem
+import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.render.BaseModelProvider
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
@@ -42,6 +42,8 @@ object ClientInit : ClientModInitializer {
             Components.Items.ScreenTwo.item,
             Components.Items.ScreenThree.item,
         )
+
+        BlockRenderLayerMap.INSTANCE.putBlock(Components.Blocks.Assembler.block, RenderLayer.getTranslucent());
     }
 
     private  val handleItemColor = fun (item: ItemStack, tintIndex: Int): Int {

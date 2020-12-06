@@ -6,7 +6,7 @@ import net.minecraft.block.BlockState
 import net.minecraft.block.Material
 
 
-class Printer: TecBlock(FabricBlockSettings.of(Material.METAL)) {
+class Printer: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
 
     override fun emitsRedstonePower(state: BlockState?): Boolean {
         return false
