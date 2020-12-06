@@ -3,6 +3,7 @@ package li.cli.oc.blocks;
 import li.cli.oc.blocks.commons.TecBlock;
 import li.cli.oc.blocks.commons.States
 import li.cli.oc.render.Color
+import li.cli.oc.tileentity.Screen
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.*
 import net.minecraft.block.entity.BlockEntity;
@@ -11,11 +12,10 @@ import net.minecraft.state.StateManager
 import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView;
 
-class Screen(var Tear: Int) : TecBlock(FabricBlockSettings.of(Material.METAL)) {
-
+class Screen(var Tier: Int) : TecBlock(FabricBlockSettings.of(Material.METAL)) {
 
     override fun getColor(): Int {
-        return Color.getTearColors(Tear - 1);
+        return Color.getTearColors(Tier - 1);
     }
 
     val pitch = States.Pitch;
@@ -28,7 +28,7 @@ class Screen(var Tear: Int) : TecBlock(FabricBlockSettings.of(Material.METAL)) {
     }
 
     override fun createBlockEntity(world: BlockView?): BlockEntity? {
-        return null;
+        return Screen(Tier);
     }
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {

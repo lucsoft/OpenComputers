@@ -1,18 +1,30 @@
 package li.cli.oc
 
 import li.cli.oc.blocks.*
-import li.cli.oc.items.gadgets.Analyzer
-import li.cli.oc.items.gadgets.commons.ComponentBlockItem
-import li.cli.oc.items.gadgets.commons.ComponentItem
+import li.cli.oc.items.Analyzer
+import li.cli.oc.items.commons.ComponentBlockItem
+import li.cli.oc.items.commons.ComponentItem
 import net.minecraft.block.Block
+import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
+import java.util.function.Supplier
 
 object Components {
 
     var caseEntityType: BlockEntityType<*>? = null
+
+    private fun makeType(entity: Supplier<BlockEntity>, block: Block): BlockEntityType<BlockEntity> {
+        return BlockEntityType.Builder.create(entity, block).build(null)
+    }
+
+    enum class BlockEntities(val id: String, val entityType: BlockEntityType<BlockEntity>) {
+        ScreenOne("screen1", makeType({ li.cli.oc.tileentity.Screen(1) }, Blocks.ScreenOne.block)),
+        ScreenTwo("screen2", makeType({ li.cli.oc.tileentity.Screen(2) }, Blocks.ScreenTwo.block)),
+        ScreenThree("screen3", makeType({ li.cli.oc.tileentity.Screen(3) }, Blocks.ScreenThree.block))
+    }
 
     enum class Blocks(val id: String, val block: Block) {
         Adapter("adapter", Adapter()),
@@ -37,7 +49,7 @@ object Components {
         Printer("printer", Printer()),
         Rack("rack", Rack()),
         Raid("raid", Raid()),
-        RedstoneIO("redstoneio", RedstoneIO()),
+        RedstoneIO("redstone", RedstoneIO()),
         Relay("relay", Relay()),
         ScreenOne("screen1", Screen(1)),
         ScreenTwo("screen2", Screen(2)),
@@ -77,9 +89,9 @@ object Components {
         Transposer(Blocks.Transposer.id, ComponentBlockItem(Blocks.Transposer.block)),
         Waypoint(Blocks.Waypoint.id, ComponentBlockItem(Blocks.Waypoint.block)),
 
-        Cpu1("cpu1",ComponentItem()),
-        Cpu2("cpu2",ComponentItem()),
-        Cpu3("cpu3",ComponentItem()),
+        Cpu1("cpu1", ComponentItem()),
+        Cpu2("cpu2", ComponentItem()),
+        Cpu3("cpu3", ComponentItem()),
 
         Apu1("apu1", ComponentItem()),
         Apu2("apu2", ComponentItem()),
@@ -165,6 +177,10 @@ object Components {
 
         caseEntityType = Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, "case"),
             BlockEntityType.Builder.create({ CaseEntity() }, Case(4)).build(null))
+
+        BlockEntities.values().iterator().forEach { x ->
+            Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, x.id), x.entityType)
+        }
 
         Blocks.values().iterator().forEach { x ->
             Registry.register(Registry.BLOCK, Identifier(OpenComputers.modId, x.id), x.block)
