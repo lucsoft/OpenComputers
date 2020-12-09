@@ -28,11 +28,9 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+    include "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
-
-    // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-    // You may need to force-disable transitiveness on them.
+    include "me.shedaniel.cloth:config-2:4.8.3"
 }
 
 processResources {
