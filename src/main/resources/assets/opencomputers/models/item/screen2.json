@@ -1,12 +1,12 @@
 {
     "parent": "block/cube",
     "textures": {
-        "down": "opencomputers:block/screen/b2",
-        "up":    "opencomputers:block/screen/b2",
-        "north": "opencomputers:block/screen/b2",
-        "south": "opencomputers:block/screen/b2",
-        "west": "opencomputers:block/screen/b2",
-        "east": "opencomputers:block/screen/f2"
+        "down": "opencomputers:block/screen/b",
+        "up":    "opencomputers:block/screen/b",
+        "east": "opencomputers:block/screen/b",
+        "south": "opencomputers:block/screen/b",
+        "west": "opencomputers:block/screen/b",
+        "north": "opencomputers:block/screen/f"
     },
     "elements": [
         {
