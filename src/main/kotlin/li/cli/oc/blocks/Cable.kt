@@ -21,8 +21,6 @@ import net.minecraft.world.BlockRenderView
 import java.util.*
 import java.util.function.Supplier
 import net.minecraft.client.texture.SpriteAtlasTexture
-import net.minecraft.client.util.math.Vector4f
-import net.minecraft.util.math.Vec3d
 import net.minecraft.util.math.Vec3i
 
 class CableModel : BakedModelConfig() {

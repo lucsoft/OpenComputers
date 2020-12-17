@@ -21,9 +21,9 @@ object Components {
     }
 
     enum class BlockEntities(val id: String, val entityType: BlockEntityType<BlockEntity>) {
-        ScreenOne("screen1", makeType({ li.cli.oc.tileentity.Screen(1) }, Blocks.ScreenOne.block)),
-        ScreenTwo("screen2", makeType({ li.cli.oc.tileentity.Screen(2) }, Blocks.ScreenTwo.block)),
-        ScreenThree("screen3", makeType({ li.cli.oc.tileentity.Screen(3) }, Blocks.ScreenThree.block))
+        ScreenOne("screen1", makeType({ li.cli.oc.blockentity.Screen(1) }, Blocks.ScreenOne.block)),
+        ScreenTwo("screen2", makeType({ li.cli.oc.blockentity.Screen(2) }, Blocks.ScreenTwo.block)),
+        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block))
     }
 
     enum class Blocks(val id: String, val block: Block) {

@@ -27,10 +27,10 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
     include "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
-    include "me.shedaniel.cloth:config-2:4.8.3"
 }
 
 processResources {

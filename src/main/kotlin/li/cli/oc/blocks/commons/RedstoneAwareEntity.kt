@@ -18,6 +18,6 @@ open class RedstoneAwareEntity(type: BlockEntityType<*>?) : BlockEntity(type) {
                 return output[i];
             }
         }
-        return -1;
+        return 0;
     }
 }
