@@ -19,8 +19,7 @@
       "item": "opencomputers:printedcircuitboard"
     },
     "S": {
-      "item": "minecraft:sticky_piston",
-      "item": "minecraft:piston"
+      "tag": "opencomputers:piston"
     }
   },
   "result": {

@@ -10,8 +10,7 @@
       "item": "minecraft:iron_ingot"
     },
     "C": {
-      "item": "minecraft:sticky_piston",
-      "item": "minecraft:piston"
+      "tag": "opencomputers:piston"
     },
     "M": {
       "item": "opencomputers:microchip1"

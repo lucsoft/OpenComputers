@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "MWM",
-    "CBC",
+    "BCB",
     "RPD"
   ],
   "key": {
@@ -19,7 +19,7 @@
       "item": "opencomputers:printedcircuitboard"
     },
     "B": {
-      "item": "minecraft:chest"
+      "item": "minecraft:iron_bars"
     },
     "W": {
       "item": "opencomputers:wlancard2"

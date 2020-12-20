@@ -13,8 +13,7 @@
       "item": "opencomputers:cable"
     },
     "M": {
-      "item": "opencomputers:piston",
-      "item": "opencomputers:sticky_piston"
+      "tag": "opencomputers:piston"
     },
     "P": {
       "item": "opencomputers:printedcircuitboard"
