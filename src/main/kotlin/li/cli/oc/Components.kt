@@ -1,5 +1,6 @@
 package li.cli.oc
 
+import java.util.function.Supplier
 import li.cli.oc.blocks.*
 import li.cli.oc.items.Analyzer
 import li.cli.oc.items.commons.ComponentBlockItem
@@ -10,7 +11,6 @@ import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.item.Item
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
-import java.util.function.Supplier
 
 object Components {
 
@@ -43,7 +43,7 @@ object Components {
         HologramTweo("hologram2", Hologram()),
         Keyboard("keyboard", Keyboard()),
         MotionSensor("motionsensor", MotionSensor()),
-        Netspliter("netspliter", Netspliter()),
+        netsplitter("netsplitter", Netsplitter()),
         PowerConverter("powerconverter", PowerConverter()),
         PowerDistributor("powerdistributor", PowerDistributor()),
         Printer("printer", Printer()),
@@ -75,7 +75,7 @@ object Components {
         HologramTweo(Blocks.HologramTweo.id, ComponentBlockItem(Blocks.HologramTweo.block)),
         Keyboard(Blocks.Keyboard.id, ComponentBlockItem(Blocks.Keyboard.block)),
         MotionSensor(Blocks.MotionSensor.id, ComponentBlockItem(Blocks.MotionSensor.block)),
-        Netspliter(Blocks.Netspliter.id, ComponentBlockItem(Blocks.Netspliter.block)),
+        netsplitter(Blocks.netsplitter.id, ComponentBlockItem(Blocks.netsplitter.block)),
         PowerConverter(Blocks.PowerConverter.id, ComponentBlockItem(Blocks.PowerConverter.block)),
         PowerDistributer(Blocks.PowerDistributor.id, ComponentBlockItem(Blocks.PowerDistributor.block)),
         Printer(Blocks.Printer.id, ComponentBlockItem(Blocks.Printer.block)),
@@ -190,6 +190,4 @@ object Components {
             Registry.register(Registry.ITEM, Identifier(OpenComputers.modId, x.id), x.item)
         }
     }
-
 }
-
