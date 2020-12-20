@@ -1,4 +1,4 @@
-![Welcome to OpenComputers](assets/misc/banner.png)
+![Welcome to OpenComputers](src/main/resources/assets/opencomputers/banner.png)
 
 ![build](https://github.com/lucsoft/OpenComputers/workflows/build/badge.svg)
 [![nightly](https://img.shields.io/badge/Builds-nightly-blue)](https://nightly.link/lucsoft/OpenComputers/workflows/build/master-MC1.16/Artifacts.zip)

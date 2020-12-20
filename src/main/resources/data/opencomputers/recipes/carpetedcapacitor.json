@@ -10,7 +10,7 @@
       "item": "opencomputers:capacitor"
     },
     "W": {
-      "type": "minecraft:carpets"
+      "tag": "minecraft:carpets"
     }
   },
   "result": {

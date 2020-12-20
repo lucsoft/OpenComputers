@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "opencomputers:carpetedcapcitor"
+          "name": "opencomputers:carpetedcapacitor"
         }
       ],
       "conditions": [

@@ -39,7 +39,11 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
     var connectedAt: Int? = null
 
     override fun tick() {
-        // soon
+        if(connectedAt == null && !notifying && world != null) {
+            notifyOthers()
+            notifySelf()
+            expand()
+        }
     }
 
     fun getColor(): Int {
@@ -180,13 +184,13 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         tag.putInt("height", height)
         tag.putInt("offsetX", offsetX)
         tag.putInt("offsetY", offsetY)
-        if(connectedAt != null) tag.putInt("screenConnect", connectedAt!!)
+        tag.putInt("screenConnect", connectedAt!!)
         return tag
     }
 
     override fun fromTag(state: BlockState?, tag: CompoundTag) {
         super.fromTag(state,tag)
-        address = tag.getUuid("address")
+//        address = tag.getUuid("address")
 
         val oldOffsetX = offsetX
         val oldOffsetY = offsetY
@@ -229,8 +233,12 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         if (pos == getPos()) return this
         val world = getWorld()
         if (world == null || !world.isRegionLoaded(pos, pos)) return null
-
-        val tile: Screen? = world.getBlockEntity(pos) as? Screen
+        val tile: Screen?;
+        try {
+            tile = world.getBlockEntity(pos) as? Screen
+        } catch (e: StackOverflowError) {
+            return null
+        }
         val monitor = tile as Screen
         return if (
             !monitor.notifying
@@ -247,6 +255,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
 
     private fun updateBlock() {
         markDirty()
+        if(world == null) return;
         val state: BlockState = world!!.getBlockState(pos)
         world!!.updateListeners(pos, state, state, 3)
     }
