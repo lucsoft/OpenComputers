@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MCM",
+    "PDP",
+    "OGO"
+  ],
+  "key": {
+    "C": {
+      "tag": "minecraft:impermeable"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "G": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "opencomputers:hologram2",
+    "count": 1
+  }
+}

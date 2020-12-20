@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MWM",
+    "CBC",
+    "RPD"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "B": {
+      "item": "minecraft:chest"
+    },
+    "W": {
+      "item": "opencomputers:wlancard2"
+    },
+    "D": {
+      "item": "opencomputers:powerdistributor"
+    },
+    "R": {
+      "item": "opencomputers:relay"
+    }
+  },
+  "result": {
+    "item": "opencomputers:rack",
+    "count": 1
+  }
+}

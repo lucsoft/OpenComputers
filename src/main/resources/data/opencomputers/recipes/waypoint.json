@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "TWT",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "T": {
+      "item": "opencomputers:transistor"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "W": {
+      "item": "opencomputers:interweb"
+    }
+  },
+  "result": {
+    "item": "opencomputers:waypoint",
+    "count": 1
+  }
+}

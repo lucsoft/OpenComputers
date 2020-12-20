@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "BCB",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "B": {
+      "item": "minecraft:iron_bars"
+    }
+   },
+   "result": {
+     "item": "opencomputers:case2",
+    "count": 1
+
+   }
+  }

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CGA",
+    "P O",
+    "ILI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "opencomputers:controlunit"
+    },
+    "P": {
+      "item": "minecraft:piston",
+      "item": "minecraft:sticky_piston"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "A": {
+      "item": "opencomputers:analyzer"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "G": {
+      "tag": "opencomputers:glass_panes"
+    }
+  },
+  "result": {
+    "item": "opencomputers:disassembler",
+    "count": 1
+  }
+}

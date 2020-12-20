@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WC ",
+    "   ",
+    "   "
+  ],
+  "key": {
+    "C": {
+      "item": "opencomputers:capacitor"
+    },
+    "W": {
+      "type": "minecraft:carpets"
+    }
+  },
+  "result": {
+    "item": "opencomputers:carpetedcapacitor",
+    "count": 1
+  }
+}
