@@ -116,6 +116,7 @@ object Components {
         Microchip2("microchip2", ComponentItem()),
         Microchip3("microchip3", ComponentItem()),
         Cuttingwire("cuttingwire", ComponentItem()),
+        Diamondnugget("diamond_nugget", ComponentItem()),
         Grog("grog", ComponentItem()),
         Rawcircuitboard("rawcircuitboard", ComponentItem()),
         Circuitboard("circuitboard", ComponentItem()),

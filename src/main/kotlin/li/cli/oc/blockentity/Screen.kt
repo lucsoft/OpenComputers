@@ -255,6 +255,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
 
     private fun updateBlock() {
         markDirty()
+        if(world == null) return;
         val state: BlockState = world!!.getBlockState(pos)
         world!!.updateListeners(pos, state, state, 3)
     }
