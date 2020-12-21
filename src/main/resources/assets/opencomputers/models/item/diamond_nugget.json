@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-        "layer0":"opencomputers:item/chipdiamond"
+        "layer0":"opencomputers:item/diamond_nugget"
     }
 }

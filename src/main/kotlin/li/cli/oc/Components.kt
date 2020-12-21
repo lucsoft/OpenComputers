@@ -1,5 +1,6 @@
 package li.cli.oc
 
+import java.util.function.Supplier
 import li.cli.oc.blocks.*
 import li.cli.oc.client.gui.blocks.CaseScreen
 import li.cli.oc.client.gui.blocks.CaseScreenHandler
@@ -16,7 +17,6 @@ import net.minecraft.item.Item
 import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
-import java.util.function.Supplier
 
 object Components {
 
@@ -29,7 +29,8 @@ object Components {
     enum class BlockEntities(val id: String, val entityType: BlockEntityType<BlockEntity>) {
         ScreenOne("screen1", makeType({ li.cli.oc.blockentity.Screen(1) }, Blocks.ScreenOne.block)),
         ScreenTwo("screen2", makeType({ li.cli.oc.blockentity.Screen(2) }, Blocks.ScreenTwo.block)),
-        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block))
+        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block)),
+        Cable("cable", makeType({ li.cli.oc.blockentity.Cable()}, Blocks.Cable.block))
     }
 
     enum class Blocks(val id: String, val block: Block) {
@@ -49,7 +50,7 @@ object Components {
         HologramTweo("hologram2", Hologram()),
         Keyboard("keyboard", Keyboard()),
         MotionSensor("motionsensor", MotionSensor()),
-        Netspliter("netspliter", Netspliter()),
+        netsplitter("netsplitter", Netsplitter()),
         PowerConverter("powerconverter", PowerConverter()),
         PowerDistributor("powerdistributor", PowerDistributor()),
         Printer("printer", Printer()),
@@ -81,7 +82,7 @@ object Components {
         HologramTweo(Blocks.HologramTweo.id, ComponentBlockItem(Blocks.HologramTweo.block)),
         Keyboard(Blocks.Keyboard.id, ComponentBlockItem(Blocks.Keyboard.block)),
         MotionSensor(Blocks.MotionSensor.id, ComponentBlockItem(Blocks.MotionSensor.block)),
-        Netspliter(Blocks.Netspliter.id, ComponentBlockItem(Blocks.Netspliter.block)),
+        netsplitter(Blocks.netsplitter.id, ComponentBlockItem(Blocks.netsplitter.block)),
         PowerConverter(Blocks.PowerConverter.id, ComponentBlockItem(Blocks.PowerConverter.block)),
         PowerDistributer(Blocks.PowerDistributor.id, ComponentBlockItem(Blocks.PowerDistributor.block)),
         Printer(Blocks.Printer.id, ComponentBlockItem(Blocks.Printer.block)),
@@ -122,9 +123,10 @@ object Components {
         Microchip2("microchip2", ComponentItem()),
         Microchip3("microchip3", ComponentItem()),
         Cuttingwire("cuttingwire", ComponentItem()),
+        Diamondnugget("diamond_nugget", ComponentItem()),
         Grog("grog", ComponentItem()),
         Rawcircuitboard("rawcircuitboard", ComponentItem()),
-        Circuitboard("circuitboard", ComponentItem()),
+//        Circuitboard("circuitboard", ComponentItem()), unused
         Printedcircuitboard("printedcircuitboard", ComponentItem()),
         Arithmeticlogicunit("arithmeticlogicunit", ComponentItem()),
         Controlunit("controlunit", ComponentItem()),
@@ -201,4 +203,3 @@ object Components {
     val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerSimple(Identifier(OpenComputers.modId, "case1"), ::CaseScreenHandler)
 
 }
-

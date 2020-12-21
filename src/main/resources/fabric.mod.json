@@ -3,13 +3,14 @@
   "id": "opencomputers",
   "version": "${version}",
   "name": "OpenComputers",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "OpenComputers adds programable computers to Minecraft.",
   "authors": [
-    "Me!"
+    "lucsoft"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/lucsoft/OpenComputers",
+    "issues": "https://github.com/lucsoft/OpenComputers/issues"
   },
 
   "license": "CC0-1.0",
