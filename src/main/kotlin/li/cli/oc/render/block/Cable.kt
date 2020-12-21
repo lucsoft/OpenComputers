@@ -1,9 +1,7 @@
 package li.cli.oc.render.block
 
 import li.cli.oc.OpenComputers
-import li.cli.oc.blocks.Cable
 import li.cli.oc.blocks.commons.BakedModelConfig
-import li.cli.oc.blocks.commons.TecBlock
 import net.fabricmc.fabric.api.renderer.v1.mesh.MutableQuadView
 import net.fabricmc.fabric.api.renderer.v1.mesh.QuadEmitter
 import net.fabricmc.fabric.api.renderer.v1.render.RenderContext
@@ -16,7 +14,6 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
-import net.minecraft.util.math.Vec3i
 import net.minecraft.world.BlockRenderView
 import java.util.*
 import java.util.function.Supplier
@@ -188,25 +185,12 @@ class CableModel : BakedModelConfig() {
     ) {
         val emitter = renderContext?.emitter!!
 
-        val connections = mutableListOf<Direction>()
         val world = MinecraftClient.getInstance().world!!
 
-        val checkForCable = listOf(
-            Vec3i(0,-1,0), Vec3i(0,1,0),
-            Vec3i(0,0,-1), Vec3i(0,0,1),
-            Vec3i(-1,0,0), Vec3i(1,0,0)
-        )
+        val cable = world.getBlockEntity(blockPos!!) as? li.cli.oc.blockentity.Cable
+        if(cable == null) return
 
-        checkForCable.forEachIndexed { index, vec3i ->
-            val blockstate = world.getBlockState(blockPos?.add(vec3i))
-            val block = blockstate.block
-            val direction =  Direction.byId(index)
-            if(block is Cable)
-                connections.add(direction)
-            else if(block is TecBlock && direction.opposite in block.allowedToBeConnected(blockstate)) {
-                connections.add(direction)
-            }
-        }
+        val connections = cable.updateConnected()
 
         if (connections.isEmpty()) generateCable(emitter)
         else {

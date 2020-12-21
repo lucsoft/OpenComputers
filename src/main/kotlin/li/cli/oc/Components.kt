@@ -3,6 +3,7 @@ package li.cli.oc
 import java.util.function.Supplier
 import li.cli.oc.blocks.*
 import li.cli.oc.items.Analyzer
+import li.cli.oc.items.Debugger
 import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.items.commons.ComponentItem
 import net.minecraft.block.Block
@@ -23,7 +24,8 @@ object Components {
     enum class BlockEntities(val id: String, val entityType: BlockEntityType<BlockEntity>) {
         ScreenOne("screen1", makeType({ li.cli.oc.blockentity.Screen(1) }, Blocks.ScreenOne.block)),
         ScreenTwo("screen2", makeType({ li.cli.oc.blockentity.Screen(2) }, Blocks.ScreenTwo.block)),
-        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block))
+        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block)),
+        Cable("cable", makeType({ li.cli.oc.blockentity.Cable()}, Blocks.Cable.block))
     }
 
     enum class Blocks(val id: String, val block: Block) {
@@ -111,6 +113,7 @@ object Components {
         Componentbus3("componentbus3", ComponentItem()),
 
         Analyzer("analyzer", Analyzer()),
+        Debugger("debugger", Debugger()),
         Transistor("transistor", ComponentItem()),
         Microchip1("microchip1", ComponentItem()),
         Microchip2("microchip2", ComponentItem()),
