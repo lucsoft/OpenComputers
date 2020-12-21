@@ -189,20 +189,22 @@ class CableModel : BakedModelConfig() {
         val emitter = renderContext?.emitter!!
 
         val connections = mutableListOf<Direction>()
-        val world = MinecraftClient.getInstance().world!!;
+        val world = MinecraftClient.getInstance().world!!
 
-        var checkForCable = listOf(
+        val checkForCable = listOf(
             Vec3i(0,-1,0), Vec3i(0,1,0),
             Vec3i(0,0,-1), Vec3i(0,0,1),
             Vec3i(-1,0,0), Vec3i(1,0,0)
         )
 
         checkForCable.forEachIndexed { index, vec3i ->
-            val block = world.getBlockState(blockPos?.add(vec3i)).block
+            val blockstate = world.getBlockState(blockPos?.add(vec3i))
+            val block = blockstate.block
+            val direction =  Direction.byId(index)
             if(block is Cable)
-                connections.add(Direction.byId(index))
-            else if(block is TecBlock) {
-                connections.add(Direction.byId(index))
+                connections.add(direction)
+            else if(block is TecBlock && direction.opposite in block.allowedToBeConnected(blockstate)) {
+                connections.add(direction)
             }
         }
 

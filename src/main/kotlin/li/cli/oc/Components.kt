@@ -119,7 +119,7 @@ object Components {
         Diamondnugget("diamond_nugget", ComponentItem()),
         Grog("grog", ComponentItem()),
         Rawcircuitboard("rawcircuitboard", ComponentItem()),
-        Circuitboard("circuitboard", ComponentItem()),
+//        Circuitboard("circuitboard", ComponentItem()), unused
         Printedcircuitboard("printedcircuitboard", ComponentItem()),
         Arithmeticlogicunit("arithmeticlogicunit", ComponentItem()),
         Controlunit("controlunit", ComponentItem()),
