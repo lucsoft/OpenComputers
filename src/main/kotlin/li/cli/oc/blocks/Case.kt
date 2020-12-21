@@ -36,7 +36,7 @@ class CaseEntity : RedstoneAwareEntity(Components.caseEntityType), NamedScreenHa
     }
 }
 
-class Case(var Tear: Int, settings: Settings) : TecBlock(settings) {
+class Case(var Tear: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
 
 
     override fun getColor(): Int {

@@ -39,10 +39,10 @@ object Components {
         Cable("cable", Cable()),
         Capacitor("capacitor", Capacitor()),
         CarpatedCapacitor("carpetedcapacitor", CarpetedCapacitor()),
-        CaseOne("case1", Case(1, FabricBlockSettings.of(Material.METAL).nonOpaque())),
-        CaseTwo("case2", Case(2, FabricBlockSettings.of(Material.METAL).nonOpaque())),
-        CaseThree("case3", Case(3, FabricBlockSettings.of(Material.METAL).nonOpaque())),
-        CaseCreative("casecreative", Case(4, FabricBlockSettings.of(Material.METAL).nonOpaque())),
+        CaseOne("case1", Case(1)),
+        CaseTwo("case2", Case(2)),
+        CaseThree("case3", Case(3)),
+        CaseCreative("casecreative", Case(4)),
         Charger("charger", Charger()),
         Disassembler("disassembler", Disassembler()),
         DiskDrive("diskdrive", DiskDrive()),
@@ -184,7 +184,7 @@ object Components {
     fun registerComponents() {
 
         caseEntityType = Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, "case"),
-            BlockEntityType.Builder.create({ CaseEntity() }, Case(4, FabricBlockSettings.of(Material.METAL).nonOpaque())).build(null))
+            BlockEntityType.Builder.create({ CaseEntity() }, Case(4)).build(null))
 
         BlockEntities.values().iterator().forEach { x ->
             Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, x.id), x.entityType)
@@ -199,7 +199,7 @@ object Components {
         }
     }
 
-    val CASE1 = Case(1, FabricBlockSettings.of(Material.METAL).nonOpaque(), )
+    val CASE1 = Case(1)
     val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerSimple(Identifier(OpenComputers.modId, "case1"), ::CaseScreenHandler)
 
 }
