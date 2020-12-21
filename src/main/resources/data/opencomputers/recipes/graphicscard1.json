@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MAR",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "opencomputers:ram1"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "A": {
+      "item": "opencomputers:arithmeticlogicunit"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:graphicscard1",
+    "count": 1
+  }
+}

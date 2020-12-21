@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RME",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:redstonecard2",
+    "count": 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WM ",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "W": {
+      "item": "opencomputers:cable"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:lancard",
+    "count": 1
+  }
+}

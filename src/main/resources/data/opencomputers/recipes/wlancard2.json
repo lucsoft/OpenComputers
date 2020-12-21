@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EM ",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:wlancard2",
+    "count": 1
+  }
+}

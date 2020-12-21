@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TM ",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:redstonecard1",
+    "count": 1
+  }
+}
