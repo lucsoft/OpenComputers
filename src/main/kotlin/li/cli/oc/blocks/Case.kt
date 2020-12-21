@@ -25,10 +25,10 @@ import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World
 
-class CaseEntity : RedstoneAwareEntity(Components.caseEntityType), NamedScreenHandlerFactory {
+class CaseEntity(val tier: Int) : RedstoneAwareEntity(Components.caseEntityType), NamedScreenHandlerFactory {
 
     override fun createMenu(syncId: Int, inv: PlayerInventory, player: PlayerEntity): ScreenHandler {
-        return CaseScreenHandler(syncId, inv)
+        return CaseScreenHandler(syncId, inv, tier)
     }
 
     override fun getDisplayName(): Text {
@@ -36,11 +36,11 @@ class CaseEntity : RedstoneAwareEntity(Components.caseEntityType), NamedScreenHa
     }
 }
 
-class Case(var Tear: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
+class Case(var tier: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
 
 
     override fun getColor(): Int {
-        return Color.getTearColors(Tear - 1);
+        return Color.getTearColors(tier - 1);
     }
 
     val facing = HorizontalFacingBlock.FACING;
@@ -61,7 +61,7 @@ class Case(var Tear: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).nonO
     }
 
     override fun createBlockEntity(world: BlockView?): BlockEntity? {
-        return CaseEntity();
+        return CaseEntity(tier);
     }
 
     override fun getRenderType(state: BlockState?): BlockRenderType {

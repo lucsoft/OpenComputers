@@ -8,7 +8,7 @@ import net.minecraft.inventory.SimpleInventory
 import net.minecraft.screen.ScreenHandler
 import net.minecraft.screen.slot.Slot
 
-class CaseScreenHandler(syncId: Int, playerInventory: PlayerInventory) : ScreenHandler(Components.CASE_SCREEN_HANDLER, syncId) {
+class CaseScreenHandler(syncId: Int, playerInventory: PlayerInventory, val tier: Int) : ScreenHandler(Components.CASE_SCREEN_HANDLER, syncId) {
     private val inventory = SimpleInventory(10)
 
     override fun canUse(player: PlayerEntity?): Boolean {
