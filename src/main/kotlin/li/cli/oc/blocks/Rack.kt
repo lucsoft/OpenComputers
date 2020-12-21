@@ -10,10 +10,9 @@ import net.minecraft.item.ItemPlacementContext
 import net.minecraft.state.StateManager
 import net.minecraft.util.math.Direction
 
-
 class Rack: TecBlock(FabricBlockSettings.of(Material.METAL)) {
 
-    val facing = HorizontalFacingBlock.FACING;
+    val facing = HorizontalFacingBlock.FACING
 
     init {
         defaultState = (stateManager.defaultState as BlockState)
@@ -21,14 +20,19 @@ class Rack: TecBlock(FabricBlockSettings.of(Material.METAL)) {
     }
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>?) {
-        builder!!.add(HorizontalFacingBlock.FACING);
+        builder!!.add(HorizontalFacingBlock.FACING)
     }
 
     override fun getPlacementState(ctx: ItemPlacementContext?): BlockState? {
-        return this.defaultState.with(facing, ctx?.playerFacing?.opposite);
+        return this.defaultState.with(facing, ctx?.playerFacing?.opposite)
     }
 
     override fun emitsRedstonePower(state: BlockState?): Boolean {
         return false
+    }
+
+    override fun allowedToBeConnected(state: BlockState?): Array<Direction> {
+        val blockFaceing = state?.get(facing)!!
+        return arrayOf(Direction.UP, Direction.DOWN, blockFaceing.opposite, blockFaceing.rotateYCounterclockwise(), blockFaceing.rotateYClockwise())
     }
 }
