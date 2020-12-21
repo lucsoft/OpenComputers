@@ -3,6 +3,7 @@ package li.cli.oc
 import java.util.function.Supplier
 import li.cli.oc.blocks.*
 import li.cli.oc.items.Analyzer
+import li.cli.oc.items.Debugger
 import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.items.commons.ComponentItem
 import net.minecraft.block.Block
@@ -112,6 +113,7 @@ object Components {
         Componentbus3("componentbus3", ComponentItem()),
 
         Analyzer("analyzer", Analyzer()),
+        Debugger("debugger", Debugger()),
         Transistor("transistor", ComponentItem()),
         Microchip1("microchip1", ComponentItem()),
         Microchip2("microchip2", ComponentItem()),
