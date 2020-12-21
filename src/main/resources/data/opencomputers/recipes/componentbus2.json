@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "MC ",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_nugget"
+    },
+    "C": {
+      "item": "opencomputers:controlunit"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "opencomputers:componentbus2",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "TMT",
+    "ITI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "T": {
+      "item": "opencomputers:transistor"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "opencomputers:arithmeticlogicunit",
+    "count": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MDI",
+    "PDC",
+    "MDI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "tag": "opencomputers:pistons"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "D": {
+      "item": "opencomputers:disk"
+    }
+  },
+  "result": {
+    "item": "opencomputers:hdd1",
+    "count": 1
+  }
+}

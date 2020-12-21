@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "MC ",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:emerald"
+    },
+    "C": {
+      "item": "opencomputers:controlunit"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "opencomputers:componentbus3",
+    "count": 1
+  }
+}
