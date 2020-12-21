@@ -10,6 +10,7 @@ import net.minecraft.client.render.model.json.ModelOverrideList
 import net.minecraft.client.render.model.json.ModelTransformation
 import net.minecraft.client.texture.Sprite
 import net.minecraft.client.util.SpriteIdentifier
+import net.minecraft.client.util.math.Vector4f
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.Direction
 import java.util.*
@@ -29,11 +30,41 @@ abstract class BakedModelConfig: UnbakedModel, BakedModel, FabricBakedModel {
     ): Collection<SpriteIdentifier> {
         return spriteIds.asList()
     }
+    fun renderSprite(
+        emitter: QuadEmitter?,
+        direction: Direction,
+        texture: Sprite?,
+        vector: Vector4f,
+        customRotation: Int = MutableQuadView.BAKE_LOCK_UV,
+        color: Int = -1
+    ){
+        renderSprite(emitter,
+                direction,
+                texture,
+            vector.x,
+            vector.y,
+            vector.z,
+                vector.w,
+                0.0f,
+                customRotation,
+                color)
+    }
 
-    fun renderSprite(emitter: QuadEmitter?, direction: Direction, texture: Sprite?, left: Float, bottom: Float, right: Float, top: Float, depth: Float){
+    fun renderSprite(
+        emitter: QuadEmitter?,
+        direction: Direction,
+        texture: Sprite?,
+        left: Float,
+        bottom: Float,
+        right: Float,
+        top: Float,
+        depth: Float,
+        customRotation: Int = MutableQuadView.BAKE_LOCK_UV,
+        color: Int = -1
+    ){
         emitter?.square(direction, left, bottom, right, top, depth)
-        emitter?.spriteBake(0, texture, MutableQuadView.BAKE_LOCK_UV)
-        emitter?.spriteColor(0, -1, -1, -1, -1)
+        emitter?.spriteBake(0, texture, customRotation)
+        emitter?.spriteColor(0, color,color, color, color)
         emitter?.emit()
     }
 
@@ -44,7 +75,7 @@ abstract class BakedModelConfig: UnbakedModel, BakedModel, FabricBakedModel {
         modelId: Identifier?
     ): BakedModel? {
 
-        for (i in 0..1) {
+        for (i in spriteIds.indices) {
             sprites[i] = textureGetter?.apply(spriteIds[i])
         }
 

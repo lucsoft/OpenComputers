@@ -17,20 +17,11 @@ open class TecBlock(settings: Settings?) : BlockWithEntity(settings) {
     }
 
     override fun emitsRedstonePower(state: BlockState?): Boolean {
-        return true;
-    }
-
-    override fun getStrongRedstonePower(state: BlockState?, world: BlockView?, pos: BlockPos?, direction: Direction?): Int {
-        return getWeakRedstonePower(state, world, pos, direction)
+        return false;
     }
 
     override fun createBlockEntity(world: BlockView?): BlockEntity? {
         return null
-    }
-
-    override fun getWeakRedstonePower(state: BlockState?, world: BlockView?, pos: BlockPos?, direction: Direction?): Int {
-        val entity = world!!.getBlockEntity(pos) as RedstoneAwareEntity;
-        return entity.getOutput(direction!!);
     }
 
     override fun getRenderType(state: BlockState?): BlockRenderType {

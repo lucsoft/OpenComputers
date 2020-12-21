@@ -1,13 +1,19 @@
 package li.cli.oc
 
 import li.cli.oc.blocks.*
+import li.cli.oc.client.gui.blocks.CaseScreen
+import li.cli.oc.client.gui.blocks.CaseScreenHandler
 import li.cli.oc.items.Analyzer
 import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.items.commons.ComponentItem
+import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry
 import net.minecraft.block.Block
+import net.minecraft.block.Material
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.item.Item
+import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import java.util.function.Supplier
@@ -21,9 +27,9 @@ object Components {
     }
 
     enum class BlockEntities(val id: String, val entityType: BlockEntityType<BlockEntity>) {
-        ScreenOne("screen1", makeType({ li.cli.oc.tileentity.Screen(1) }, Blocks.ScreenOne.block)),
-        ScreenTwo("screen2", makeType({ li.cli.oc.tileentity.Screen(2) }, Blocks.ScreenTwo.block)),
-        ScreenThree("screen3", makeType({ li.cli.oc.tileentity.Screen(3) }, Blocks.ScreenThree.block))
+        ScreenOne("screen1", makeType({ li.cli.oc.blockentity.Screen(1) }, Blocks.ScreenOne.block)),
+        ScreenTwo("screen2", makeType({ li.cli.oc.blockentity.Screen(2) }, Blocks.ScreenTwo.block)),
+        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block))
     }
 
     enum class Blocks(val id: String, val block: Block) {
@@ -32,10 +38,10 @@ object Components {
         Cable("cable", Cable()),
         Capacitor("capacitor", Capacitor()),
         CarpatedCapacitor("carpetedcapacitor", CarpetedCapacitor()),
-        CaseOne("case1", Case(1)),
-        CaseTwo("case2", Case(2)),
-        CaseThree("case3", Case(3)),
-        CaseCreative("casecreative", Case(4)),
+        CaseOne("case1", Case(1, FabricBlockSettings.of(Material.METAL).nonOpaque())),
+        CaseTwo("case2", Case(2, FabricBlockSettings.of(Material.METAL).nonOpaque())),
+        CaseThree("case3", Case(3, FabricBlockSettings.of(Material.METAL).nonOpaque())),
+        CaseCreative("casecreative", Case(4, FabricBlockSettings.of(Material.METAL).nonOpaque())),
         Charger("charger", Charger()),
         Disassembler("disassembler", Disassembler()),
         DiskDrive("diskdrive", DiskDrive()),
@@ -176,7 +182,7 @@ object Components {
     fun registerComponents() {
 
         caseEntityType = Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, "case"),
-            BlockEntityType.Builder.create({ CaseEntity() }, Case(4)).build(null))
+            BlockEntityType.Builder.create({ CaseEntity() }, Case(4, FabricBlockSettings.of(Material.METAL).nonOpaque())).build(null))
 
         BlockEntities.values().iterator().forEach { x ->
             Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, x.id), x.entityType)
@@ -190,6 +196,9 @@ object Components {
             Registry.register(Registry.ITEM, Identifier(OpenComputers.modId, x.id), x.item)
         }
     }
+
+    val CASE1 = Case(1, FabricBlockSettings.of(Material.METAL).nonOpaque(), )
+    val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerSimple(Identifier(OpenComputers.modId, "case1"), ::CaseScreenHandler)
 
 }
 

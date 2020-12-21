@@ -35,7 +35,7 @@
     "fabric": "*",
     "minecraft": "1.16.x"
   },
-  "requires": {
+  "depends": {
     "fabric-language-kotlin": ">=1.4.0"
   },
   "suggests": {
