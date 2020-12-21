@@ -74,4 +74,15 @@ class Screen(var Tier: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).ha
         entity?.notifySelf()
         entity?.expand()
     }
+
+    override fun allowedToBeConnected(state: BlockState?): Array<Direction> {
+        val blockPitch = state?.get(pitch)!!
+        val blockYaw = state?.get(yaw)!!
+        return when (blockPitch) {
+            Direction.UP -> Direction.values().filter { x -> x != Direction.UP }.toTypedArray()
+            Direction.DOWN -> Direction.values().filter { x -> x != Direction.DOWN }.toTypedArray()
+            Direction.NORTH -> Direction.values().filter { x -> x != blockYaw }.toTypedArray()
+            else -> arrayOf(Direction.NORTH)
+        }
+    }
 }
