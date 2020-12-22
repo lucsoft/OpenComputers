@@ -2,14 +2,13 @@ package li.cli.oc.items
 
 import li.cli.oc.OpenComputers
 import li.cli.oc.blocks.commons.OCNetwork
-import li.cli.oc.blocks.commons.TecBlock
+import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraft.item.ItemUsageContext
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
-import net.minecraft.util.math.Vec3i
 
 class Debugger: Item(Settings().group(OpenComputers.ITEM_GROUP)) {
 
@@ -25,22 +24,28 @@ class Debugger: Item(Settings().group(OpenComputers.ITEM_GROUP)) {
         fun checkNetworkNode(pos: BlockPos, direction: Direction?) {
             val blockState = world.getBlockState(pos)
             val block = blockState.block
-            if(block !is OCNetwork) return;
-            if(pos in list) return;
-
+            if(block !is OCNetwork || pos in list) return;
             val allowedConnected = block.allowedToBeConnected(blockState)
-            if(direction != null) {
-                if(!allowedConnected.contains(direction)) return;
-            }
+            if(direction != null && !allowedConnected.contains(direction)) return
+
             list.add(pos)
             allowedConnected.forEach { x -> checkNetworkNode(pos.add(x.vector), x.opposite) }
         }
         checkNetworkNode(context.blockPos, null)
+
+        val countedSet = mutableMapOf<Block, Int>()
+
+        list.forEach { x ->
+            val block = world.getBlockState(x).block;
+            if(countedSet[block] == null)
+                countedSet[block] = 1
+            else countedSet[block] = countedSet[block]!!.plus(1)
+        }
+
         context.player?.sendMessage(Text.of("${list.count()} Nodes"), true)
+        context.player?.sendMessage(Text.of("Scanned Nodes: \n${countedSet.map { entry -> "x${entry.value} ${entry.key}" }.joinToString("\n")}"), false)
 
         return ActionResult.SUCCESS;
     }
-
-
 
 }
