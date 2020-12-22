@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "TC ",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "T": {
+      "tag": "opencomputers:pistons"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:upgradecontainer3",
+    "count": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "MLM",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "L": {
+      "item": "minecraft:lapis_block"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:solargeneratorupgrade",
+    "count": 1
+  }
+}

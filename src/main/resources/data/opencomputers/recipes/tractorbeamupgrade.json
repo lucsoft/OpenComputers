@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GPG",
+    "ICI",
+    "GMG"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "C": {
+      "item": "opencomputers:capacitor"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "P": {
+      "tag": "opencomputers:pistons"
+    }
+  },
+  "result": {
+    "item": "opencomputers:tractorbeamupgrade",
+    "count": 1
+  }
+}
