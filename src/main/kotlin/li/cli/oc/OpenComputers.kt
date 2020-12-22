@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import li.cli.oc.util.CraftingComponents
 
 object OpenComputers: ModInitializer {
 
@@ -18,6 +19,7 @@ object OpenComputers: ModInitializer {
 	override fun onInitialize() {
 		ConfigLoader.initializeConfig()
 		Components.registerComponents()
+		CraftingComponents.registerSpecialCrafting()
 	}
 
 

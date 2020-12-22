@@ -160,6 +160,7 @@ object Components {
         Tradingupgrade("tradingupgrade", ComponentItem()),
         Navigationupgrade("navigationupgrade", ComponentItem()),
         Pistonupgrade("pistonupgrade", ComponentItem()),
+        Stickypistonupgrade("stickypistonupgrade", ComponentItem()),
         Chunkloaderupgrade("chunkloaderupgrade", ComponentItem()),
         Craftingupgrade("craftingupgrade", ComponentItem()),
         Experienceupgrade("experienceupgrade", ComponentItem()),
