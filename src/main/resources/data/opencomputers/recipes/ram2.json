@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MCM",
+    " P ",
+    "   "
+  ],
+  "key": {
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "C": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:ram2",
+    "count": 1
+  }
+}

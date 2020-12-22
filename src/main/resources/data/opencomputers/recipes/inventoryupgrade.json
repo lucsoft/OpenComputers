@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IHI",
+    "DCP",
+    "IMI"
+  ],
+  "key": {
+    "I": {
+      "tag": "minecraft:planks"
+    },
+    "D": {
+      "item": "minecraft:dropper"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "tag": "opencomputers:pistons"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "H": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "result": {
+    "item": "opencomputers:inventoryupgrade",
+    "count": 1
+  }
+}

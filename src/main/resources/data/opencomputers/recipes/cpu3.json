@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IRI",
+    "MCM",
+    "IAI"
+  ],
+  "key": {
+    "I": {
+      "item": "opencomputers:diamond_nugget"
+    },
+    "C": {
+      "item": "opencomputers:controlunit"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "A": {
+      "item": "opencomputers:arithmeticlogicunit"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "opencomputers:cpu3",
+    "count": 1
+  }
+}

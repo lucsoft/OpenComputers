@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "CBG",
+    "IMI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_nugget"
+    },
+    "C": {
+      "item": "opencomputers:cpu2"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "B": {
+      "item": "opencomputers:componentbus1"
+    },
+    "G": {
+      "item": "opencomputers:graphicscard1"
+    }
+  },
+  "result": {
+    "item": "opencomputers:apu1",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IAM",
+    " C ",
+    "   "
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_nugget"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "A": {
+      "item": "opencomputers:cpu1"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:datacard2",
+    "count": 1
+  }
+}

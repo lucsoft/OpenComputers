@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IUI",
+    "HBH",
+    "ITI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "H": {
+      "item": "opencomputers:microchip1"
+    },
+    "U": {
+      "item": "opencomputers:inventorycontrollerupgrade"
+    },
+    "T": {
+      "item": "opencomputers:tankcontrollerupgrade"
+    }
+  },
+  "result": {
+    "item": "opencomputers:transposer",
+    "count": 4
+  }
+}
