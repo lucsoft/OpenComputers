@@ -1,6 +1,7 @@
 package li.cli.oc.blocks
 
 import li.cli.oc.blockentity.Cable
+import li.cli.oc.blocks.commons.OCNetwork
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.*
 import net.minecraft.block.entity.BlockEntity
@@ -12,7 +13,7 @@ import net.minecraft.util.shape.VoxelShapes
 import net.minecraft.world.BlockView
 import net.minecraft.world.World
 
-class Cable: BlockWithEntity(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
+class Cable: BlockWithEntity(FabricBlockSettings.of(Material.METAL).nonOpaque()), OCNetwork {
 
     override fun getRenderType(state: BlockState?): BlockRenderType {
         return  BlockRenderType.MODEL
@@ -52,5 +53,4 @@ class Cable: BlockWithEntity(FabricBlockSettings.of(Material.METAL).nonOpaque())
 
         return current
     }
-
 }

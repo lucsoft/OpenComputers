@@ -7,7 +7,7 @@ import net.minecraft.block.entity.BlockEntity
 import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView
 
-open class TecBlock(settings: Settings?) : BlockWithEntity(settings) {
+open class TecBlock(settings: Settings?) : BlockWithEntity(settings), OCNetwork {
 
     open fun getColor(): Int? {
         return null
@@ -23,9 +23,5 @@ open class TecBlock(settings: Settings?) : BlockWithEntity(settings) {
 
     override fun getRenderType(state: BlockState?): BlockRenderType {
         return BlockRenderType.MODEL
-    }
-
-    open fun allowedToBeConnected(state: BlockState?): Array<Direction> {
-        return Direction.values()
     }
 }

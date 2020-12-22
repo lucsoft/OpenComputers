@@ -184,7 +184,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         tag.putInt("height", height)
         tag.putInt("offsetX", offsetX)
         tag.putInt("offsetY", offsetY)
-        tag.putInt("screenConnect", connectedAt!!)
+        tag.putInt("screenConnect", connectedAt?: 0)
         return tag
     }
 

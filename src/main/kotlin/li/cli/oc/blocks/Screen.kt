@@ -76,8 +76,8 @@ class Screen(var Tier: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).ha
     }
 
     override fun allowedToBeConnected(state: BlockState?): Array<Direction> {
-        val blockPitch = state?.get(pitch)!!
-        val blockYaw = state?.get(yaw)!!
+        val blockPitch = state?.get(pitch) ?: defaultState.get(pitch)
+        val blockYaw = state?.get(yaw) ?: defaultState.get(yaw)
         return when (blockPitch) {
             Direction.UP -> Direction.values().filter { x -> x != Direction.UP }.toTypedArray()
             Direction.DOWN -> Direction.values().filter { x -> x != Direction.DOWN }.toTypedArray()
