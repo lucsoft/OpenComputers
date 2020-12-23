@@ -1,6 +1,5 @@
 package li.cli.oc.blockentity
 
-import li.cli.oc.Components
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.nbt.CompoundTag
@@ -12,15 +11,15 @@ import java.util.*
 import li.cli.oc.ConfigLoader
 import li.cli.oc.blockentity.commons.TextBuffer
 import li.cli.oc.blocks.commons.States
+import li.cli.oc.components.BlockEntitiesComponent
 import li.cli.oc.render.Color
 import li.cli.oc.render.block.Flags
 
-
 private fun getEntityFromTier(Tier: Int): BlockEntityType<BlockEntity> {
    return when(Tier) {
-       1 -> Components.BlockEntities.ScreenOne.entityType
-       2 -> Components.BlockEntities.ScreenTwo.entityType
-       3 -> Components.BlockEntities.ScreenThree.entityType
+       1 -> BlockEntitiesComponent.ScreenOne.entityType
+       2 -> BlockEntitiesComponent.ScreenTwo.entityType
+       3 -> BlockEntitiesComponent.ScreenThree.entityType
        else -> null!!
    }
 }
@@ -224,7 +223,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
             return getSimilarMonitorAt(pos.offset(getRight(), xOffset).offset(getDown(), yOffset))
         } catch(e: NullPointerException) {
             return null
-        }
+        } catch (e: StackOverflowError) { return null }
     }
 
     private fun getOrigin(): Screen? { return getNeighbour(0, 0) }
@@ -256,18 +255,18 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
     private fun updateBlock() {
         markDirty()
         if(world == null) return;
-        val state: BlockState = world!!.getBlockState(pos)
-        world!!.updateListeners(pos, state, state, 3)
+        val state: BlockState? = world?.getBlockState(pos)
+        if(state != null) world?.updateListeners(pos, state, state, 3)
     }
 
     fun getBlockYaw(): Direction {
-        val state: BlockState = world!!.getBlockState(pos)
-        return state.get(States.Yaw) ?: Direction.NORTH
+        val state: BlockState? = world?.getBlockState(pos)
+        return state?.get(States.Yaw) ?: Direction.NORTH
     }
 
     fun getBlockPitch(): Direction {
-        val state: BlockState = world!!.getBlockState(pos)
-        return state.get(States.Pitch) ?: Direction.NORTH
+        val state: BlockState? = world?.getBlockState(pos)
+        return state?.get(States.Pitch) ?: Direction.NORTH
     }
 
     fun getRight(): Direction? {

@@ -1,15 +1,14 @@
 package li.cli.oc.blocks.commons;
 
-import net.minecraft.block.entity.BlockEntity;
+import li.cli.oc.blockentity.commons.TecBlockEntity
+import li.cli.oc.components.BlockEntitiesComponent
 import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.util.math.Direction;
-import java.util.*
 
-open class RedstoneAwareEntity(type: BlockEntityType<*>?) : BlockEntity(type) {
+open class RedstoneAwareEntity(type: BlockEntitiesComponent) : TecBlockEntity(type) {
 
 //    val input = Arrays.asList(-1, -1, -1, -1, -1, -1)
     val output = listOf(0, 0, 0, 0, 0, 0)
-
 
     fun getOutput(direction: Direction): Int {
 

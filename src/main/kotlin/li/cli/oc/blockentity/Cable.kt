@@ -1,13 +1,13 @@
 package li.cli.oc.blockentity
 
-import li.cli.oc.Components
+import li.cli.oc.blockentity.commons.TecBlockEntity
 import li.cli.oc.blocks.Cable
 import li.cli.oc.blocks.commons.TecBlock
-import net.minecraft.block.entity.BlockEntity
+import li.cli.oc.components.BlockEntitiesComponent
 import net.minecraft.util.math.Direction
 import net.minecraft.util.math.Vec3i
 
-class Cable: BlockEntity(Components.BlockEntities.Cable.entityType) {
+class Cable: TecBlockEntity(BlockEntitiesComponent.Cable) {
 
     var connections: MutableList<Direction>? = null
 
