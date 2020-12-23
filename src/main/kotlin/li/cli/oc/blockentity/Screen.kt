@@ -9,24 +9,25 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import java.util.*
 import li.cli.oc.ConfigLoader
+import li.cli.oc.blockentity.commons.TecBlockEntity
 import li.cli.oc.blockentity.commons.TextBuffer
 import li.cli.oc.blocks.commons.States
 import li.cli.oc.components.BlockEntitiesComponent
 import li.cli.oc.render.Color
 import li.cli.oc.render.block.Flags
+import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable
 
-private fun getEntityFromTier(Tier: Int): BlockEntityType<BlockEntity> {
+private fun getEntityFromTier(Tier: Int): BlockEntitiesComponent {
    return when(Tier) {
-       1 -> BlockEntitiesComponent.ScreenOne.entityType
-       2 -> BlockEntitiesComponent.ScreenTwo.entityType
-       3 -> BlockEntitiesComponent.ScreenThree.entityType
-       else -> null!!
+       1 -> BlockEntitiesComponent.ScreenOne
+       2 -> BlockEntitiesComponent.ScreenTwo
+       3 -> BlockEntitiesComponent.ScreenThree
+       else -> BlockEntitiesComponent.ScreenThree
    }
 }
 
-class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
+class Screen(val tier: Int): TecBlockEntity(getEntityFromTier(tier)), Tickable {
 
-    var address: UUID? = null
     var textBuffer: TextBuffer? = null
     var width = 1
     var height = 1
@@ -111,7 +112,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         if (left == null || left.offsetY != 0 || left.height != height) return false
         val width = left.width + width
 
-        if (width > ConfigLoader.getConfig()!!.multiBlocks.screenWidth) return false
+        if (width > ConfigLoader.getConfig().multiBlocks.screenWidth) return false
         left.getOrigin()?.resize(width, height)
         left.expand()
         return true
@@ -122,7 +123,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         if (right == null || right.offsetY != 0 || right.height != height) return false
         val width = width + right.width
 
-        if (width > ConfigLoader.getConfig()!!.multiBlocks.screenWidth) return false
+        if (width > ConfigLoader.getConfig().multiBlocks.screenWidth) return false
         getOrigin()?.resize(width, height)
         expand()
         return true
@@ -132,7 +133,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         val above = getNeighbour(0, height)
         if (above == null || above.offsetX != 0 || above.width != width) return false
         val height: Int = above.height + height
-        if (height > ConfigLoader.getConfig()?.multiBlocks!!.screenHeight) return false
+        if (height > ConfigLoader.getConfig().multiBlocks.screenHeight) return false
         getOrigin()?.resize(width, height)
         expand()
         return true
@@ -142,7 +143,7 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         val below= getNeighbour(0, -1)
         if (below == null || below.offsetX != 0 || below.width != width) return false
         val height = height + below.height
-        if (height > ConfigLoader.getConfig()?.multiBlocks!!.screenHeight) return false
+        if (height > ConfigLoader.getConfig().multiBlocks.screenHeight) return false
         below.getOrigin()?.resize(width, height)
         below.expand()
         return true
@@ -178,7 +179,6 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
     }
     override fun toTag(tag: CompoundTag): CompoundTag {
         super.toTag(tag)
-        if(address != null) tag.putUuid("address", address)
         tag.putInt("width", width)
         tag.putInt("height", height)
         tag.putInt("offsetX", offsetX)
@@ -187,23 +187,23 @@ class Screen(val tier: Int): BlockEntity(getEntityFromTier(tier)), Tickable  {
         return tag
     }
 
-    override fun fromTag(state: BlockState?, tag: CompoundTag) {
+    override fun fromTag(state: BlockState?, tag: CompoundTag?) {
         super.fromTag(state,tag)
-//        address = tag.getUuid("address")
 
         val oldOffsetX = offsetX
         val oldOffsetY = offsetY
         val oldWidth = width
         val oldHeight = height
 
-        width = tag.getInt("width")
-        height = tag.getInt("height")
-        offsetX = tag.getInt("offsetX")
-        offsetY = tag.getInt("offsetY")
-        connectedAt = tag.getInt("screenConnect")
+        width = tag?.getInt("width") ?: 0
+        height = tag?.getInt("height") ?: 0
+        offsetX = tag?.getInt("offsetX") ?: 0
+        offsetY = tag?.getInt("offsetY") ?: 0
+        connectedAt = tag?.getInt("screenConnect") ?: 0
 
         if (offsetX != offsetX || offsetY != offsetY) {
-        //  if (oldOffsetX == 0 && oldOffsetY == 0 && textBuffer != null) textBuffer.destroy()
+            // used when the textBuffer works
+            //  if (oldOffsetX == 0 && oldOffsetY == 0 && textBuffer != null) textBuffer.destroy()
             textBuffer = null
         }
 

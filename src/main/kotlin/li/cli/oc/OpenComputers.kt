@@ -6,7 +6,11 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.GsonBuilder
+import li.cli.oc.blockentity.commons.TecBlockEntity
+import li.cli.oc.networking.ServerNetworkHandler
 import li.cli.oc.util.CraftingComponents
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerBlockEntityEvents
+import java.util.*
 
 object OpenComputers: ModInitializer {
 
@@ -20,7 +24,15 @@ object OpenComputers: ModInitializer {
 		ConfigLoader.initializeConfig()
 		Components.registerComponents()
 		CraftingComponents.registerSpecialCrafting()
+
+		ServerBlockEntityEvents.BLOCK_ENTITY_LOAD.register { blockEntity, world ->
+			if(blockEntity !is TecBlockEntity) return@register;
+			ServerNetworkHandler.registerToNetwork(blockEntity)
+		}
+		ServerBlockEntityEvents.BLOCK_ENTITY_UNLOAD.register { blockEntity, world ->
+			if(blockEntity !is TecBlockEntity) return@register;
+			if(blockEntity.address != null) ServerNetworkHandler.unregisterNetwork(blockEntity.address!!)
+		}
+
 	}
-
-
 }

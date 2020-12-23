@@ -1,64 +1,43 @@
 package li.cli.oc.items
 
+import li.cli.oc.Components
 import li.cli.oc.OpenComputers
+import li.cli.oc.blockentity.commons.TecBlockEntity
 import li.cli.oc.blocks.commons.OCNetwork
-import net.minecraft.block.Block
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.MinecraftClientGame
+import li.cli.oc.networking.ServerNetworkHandler
+import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
+import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
 import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.ActionResult
-import net.minecraft.util.Language
-import net.minecraft.util.math.BlockPos
-import net.minecraft.util.math.Direction
+import net.minecraft.util.Hand
+import net.minecraft.util.TypedActionResult
+import net.minecraft.world.World
 
 class Debugger: Item(Settings().group(OpenComputers.ITEM_GROUP)) {
 
     override fun useOnBlock(context: ItemUsageContext?): ActionResult {
         val world = context?.world ?: return ActionResult.FAIL
-        val blockEntity = world.getBlockState(context.blockPos)?.block
-        if(blockEntity !is OCNetwork) return ActionResult.PASS;
+        val block = world.getBlockState(context.blockPos)?.block
+        val blockEntity = world.getBlockEntity(context.blockPos) as? TecBlockEntity
+
+        if(block !is OCNetwork) return ActionResult.PASS;
         if(!world.isClient) return ActionResult.PASS;
-        context.player?.sendMessage(Text.of("$blockEntity"), true)
-        if (context.player?.isSneaking == false) {
-            val list = mutableSetOf<BlockPos>()
 
-            fun checkNetworkNode(pos: BlockPos, direction: Direction?) {
-                val blockState = world.getBlockState(pos)
-                val block = blockState.block
-                if (block !is OCNetwork || pos in list) return;
-                val allowedConnected = block.allowedToBeConnected(blockState)
-                if (direction != null && !allowedConnected.contains(direction)) return
+        context.player?.sendMessage(Text.of(blockEntity?.address.toString()), true);
+        println("Server: " + ServerNetworkHandler.chachedNodes.toString())
 
-                list.add(pos)
-                allowedConnected.forEach { x -> checkNetworkNode(pos.add(x.vector), x.opposite) }
-            }
-            checkNetworkNode(context.blockPos, null)
-
-            val countedSet = mutableMapOf<Block, Int>()
-
-            list.forEach { x ->
-                val block = world.getBlockState(x).block;
-                if (countedSet[block] == null)
-                    countedSet[block] = 1
-                else countedSet[block] = countedSet[block]!!.plus(1)
-            }
-
-            context.player?.sendMessage(Text.of("${list.count()} Nodes"), true)
-
-            context.player?.sendMessage(
-                Text.of(
-                    "Scanned Nodes: \n${
-                        countedSet.map { entry -> "x${entry.value} ${Language.getInstance().get(entry.key.translationKey)}§r" }.joinToString("\n")
-                    }"
-                ), false
-            )
-        } else {
-            context.player?.sendMessage(Text.of("NodeID: ${blockEntity.getUUID(world.getBlockEntity(context.blockPos))}"), true)
-        }
         return ActionResult.SUCCESS;
+    }
+
+    override fun use(world: World?, user: PlayerEntity?, hand: Hand?): TypedActionResult<ItemStack> {
+        if(world?.isClient == true)
+            user?.sendMessage(Text.of("Client: " +  ServerNetworkHandler.chachedNodes.toString()), false)
+        else
+            println("Server: " + ServerNetworkHandler.chachedNodes.toString())
+
+        return TypedActionResult.success(ItemStack(Components.Items.Debugger.item), false);
     }
 
 }
