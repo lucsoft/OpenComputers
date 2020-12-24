@@ -10,7 +10,11 @@ import net.minecraft.screen.ScreenHandler
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Text?) : HandledScreen<ScreenHandler?>(handler, inventory, title) {
+class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Text?) : HandledScreen<ScreenHandler?>(
+    handler,
+    inventory,
+    title
+) {
 
     override fun drawBackground(matrices: MatrixStack?, delta: Float, mouseX: Int, mouseY: Int) {
         RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f)
@@ -22,6 +26,15 @@ class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Te
 
         client!!.textureManager.bindTexture(COMP_TEXTURE)
         drawTexture(matrices, x, y + 1, 0, 0, 256, 256)
+
+        client!!.textureManager.bindTexture(SLOT_TEXTURE)
+        val tier = (handler as CaseScreenHandler).tier
+
+        var slotMatrix = MatrixStack()
+        slotMatrix.push()
+        slotMatrix.translate(0.0, 0.0, 5.0)
+
+        drawTexture(slotMatrix, x + 42, y + 34, 0, 0, 18, 18)
     }
 
 
@@ -37,7 +50,18 @@ class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Te
         val y = (height - backgroundHeight) / 2
         // Center the title
         titleX = 7
-        val powerButton = TexturedButtonWidget(x + (backgroundWidth / 2) - 18 , y + 34, 18, 18, 0, 0, 0, BUTTON_TEXTURE, 36, 36) { button ->
+        val powerButton = TexturedButtonWidget(
+            x + (backgroundWidth / 2) - 18,
+            y + 34,
+            18,
+            18,
+            0,
+            0,
+            0,
+            BUTTON_TEXTURE,
+            36,
+            36
+        ) { button ->
             TODO(
                 "Computer start/stop here"
             )

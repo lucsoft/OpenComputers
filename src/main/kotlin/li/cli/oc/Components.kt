@@ -184,7 +184,7 @@ object Components {
     fun registerComponents() {
 
         caseEntityType = Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, "case"),
-            BlockEntityType.Builder.create({ CaseEntity() }, Case(4)).build(null))
+            BlockEntityType.Builder.create({ CaseEntity(4) }, Case(4)).build(null))
 
         BlockEntities.values().iterator().forEach { x ->
             Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, x.id), x.entityType)
@@ -200,6 +200,8 @@ object Components {
     }
 
     val CASE1 = Case(1)
-    val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerSimple(Identifier(OpenComputers.modId, "case1"), ::CaseScreenHandler)
+    val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerSimple(Identifier(OpenComputers.modId)) { syncId, inventory ->
+        CaseScreenHandler(syncId, inventory, 0)
+    }
 
 }
