@@ -14,6 +14,7 @@ import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
 import net.minecraft.world.World
+import java.util.*
 
 class Debugger: Item(Settings().group(OpenComputers.ITEM_GROUP)) {
 
@@ -26,17 +27,15 @@ class Debugger: Item(Settings().group(OpenComputers.ITEM_GROUP)) {
         if(!world.isClient) return ActionResult.PASS;
 
         context.player?.sendMessage(Text.of(blockEntity?.address.toString()), true);
-        println("Server: " + ServerNetworkHandler.chachedNodes.toString())
 
         return ActionResult.SUCCESS;
     }
 
     override fun use(world: World?, user: PlayerEntity?, hand: Hand?): TypedActionResult<ItemStack> {
-        if(world?.isClient == true)
-            user?.sendMessage(Text.of("Client: " +  ServerNetworkHandler.chachedNodes.toString()), false)
-        else
-            println("Server: " + ServerNetworkHandler.chachedNodes.toString())
-
+        if(world?.isClient == false) {
+            println("Server: " + ServerNetworkHandler.cachedNodes.map { x -> x.value.pos }.toString())
+            println("Server: " + ServerNetworkHandler.cachedNodes.toString())
+        }
         return TypedActionResult.success(ItemStack(Components.Items.Debugger.item), false);
     }
 

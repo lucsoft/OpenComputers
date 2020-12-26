@@ -1,6 +1,5 @@
-package li.cli.oc.util
+package li.cli.oc.utility
 
-import li.cli.oc.Components.Items as CItems
 import li.cli.oc.OpenComputers
 import net.minecraft.inventory.CraftingInventory
 import net.minecraft.item.Item
