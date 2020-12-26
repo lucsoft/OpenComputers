@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "RDR",
+    "IMI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "C": {
+      "item": "opencomputers:cpu3"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "R": {
+      "item": "opencomputers:ram1"
+    },
+    "D": {
+      "item": "opencomputers:diskdrive"
+    }
+  },
+  "result": {
+    "item": "opencomputers:raid",
+    "count": 1
+  }
+}

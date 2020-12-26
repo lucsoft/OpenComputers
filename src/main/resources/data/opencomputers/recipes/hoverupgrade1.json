@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FMF",
+    "ILI",
+    "FPF"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:hoverupgrade1",
+    "count": 1
+  }
+}

@@ -1,44 +1,29 @@
 package li.cli.oc
 
-import java.util.function.Supplier
 import li.cli.oc.blocks.*
+import li.cli.oc.components.BlockEntitiesComponent
 import li.cli.oc.client.gui.blocks.CaseScreen
 import li.cli.oc.client.gui.blocks.CaseScreenHandler
 import li.cli.oc.items.Analyzer
+import li.cli.oc.items.Debugger
 import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.items.commons.ComponentItem
-import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry
 import net.minecraft.block.Block
-import net.minecraft.block.Material
-import net.minecraft.block.entity.BlockEntity
-import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.item.Item
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry
 import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
 object Components {
 
-    var caseEntityType: BlockEntityType<*>? = null
-
-    private fun makeType(entity: Supplier<BlockEntity>, block: Block): BlockEntityType<BlockEntity> {
-        return BlockEntityType.Builder.create(entity, block).build(null)
-    }
-
-    enum class BlockEntities(val id: String, val entityType: BlockEntityType<BlockEntity>) {
-        ScreenOne("screen1", makeType({ li.cli.oc.blockentity.Screen(1) }, Blocks.ScreenOne.block)),
-        ScreenTwo("screen2", makeType({ li.cli.oc.blockentity.Screen(2) }, Blocks.ScreenTwo.block)),
-        ScreenThree("screen3", makeType({ li.cli.oc.blockentity.Screen(3) }, Blocks.ScreenThree.block)),
-        Cable("cable", makeType({ li.cli.oc.blockentity.Cable()}, Blocks.Cable.block))
-    }
 
     enum class Blocks(val id: String, val block: Block) {
         Adapter("adapter", Adapter()),
         Assembler("assembler", Assembler()),
         Cable("cable", Cable()),
         Capacitor("capacitor", Capacitor()),
-        CarpatedCapacitor("carpetedcapacitor", CarpetedCapacitor()),
+        CarpetedCapacitor("carpetedcapacitor", CarpetedCapacitor()),
         CaseOne("case1", Case(1)),
         CaseTwo("case2", Case(2)),
         CaseThree("case3", Case(3)),
@@ -50,7 +35,7 @@ object Components {
         HologramTweo("hologram2", Hologram()),
         Keyboard("keyboard", Keyboard()),
         MotionSensor("motionsensor", MotionSensor()),
-        netsplitter("netsplitter", Netsplitter()),
+        Netsplitter("netsplitter", Netsplitter()),
         PowerConverter("powerconverter", PowerConverter()),
         PowerDistributor("powerdistributor", PowerDistributor()),
         Printer("printer", Printer()),
@@ -70,7 +55,7 @@ object Components {
         Assembler(Blocks.Assembler.id, ComponentBlockItem(Blocks.Assembler.block)),
         Cable(Blocks.Cable.id, ComponentBlockItem(Blocks.Cable.block)),
         Capacitor(Blocks.Capacitor.id, ComponentBlockItem(Blocks.Capacitor.block)),
-        CarpatedCapacitor(Blocks.CarpatedCapacitor.id, ComponentBlockItem(Blocks.CarpatedCapacitor.block)),
+        CarpetedCapacitor(Blocks.CarpetedCapacitor.id, ComponentBlockItem(Blocks.CarpetedCapacitor.block)),
         CaseOne(Blocks.CaseOne.id, ComponentBlockItem(Blocks.CaseOne.block)),
         CaseTwo(Blocks.CaseTwo.id, ComponentBlockItem(Blocks.CaseTwo.block)),
         CaseThree(Blocks.CaseThree.id, ComponentBlockItem(Blocks.CaseThree.block)),
@@ -82,7 +67,7 @@ object Components {
         HologramTweo(Blocks.HologramTweo.id, ComponentBlockItem(Blocks.HologramTweo.block)),
         Keyboard(Blocks.Keyboard.id, ComponentBlockItem(Blocks.Keyboard.block)),
         MotionSensor(Blocks.MotionSensor.id, ComponentBlockItem(Blocks.MotionSensor.block)),
-        netsplitter(Blocks.netsplitter.id, ComponentBlockItem(Blocks.netsplitter.block)),
+        Netsplitter(Blocks.Netsplitter.id, ComponentBlockItem(Blocks.Netsplitter.block)),
         PowerConverter(Blocks.PowerConverter.id, ComponentBlockItem(Blocks.PowerConverter.block)),
         PowerDistributer(Blocks.PowerDistributor.id, ComponentBlockItem(Blocks.PowerDistributor.block)),
         Printer(Blocks.Printer.id, ComponentBlockItem(Blocks.Printer.block)),
@@ -118,6 +103,7 @@ object Components {
         Componentbus3("componentbus3", ComponentItem()),
 
         Analyzer("analyzer", Analyzer()),
+        Debugger("debugger", Debugger()),
         Transistor("transistor", ComponentItem()),
         Microchip1("microchip1", ComponentItem()),
         Microchip2("microchip2", ComponentItem()),
@@ -164,6 +150,7 @@ object Components {
         Tradingupgrade("tradingupgrade", ComponentItem()),
         Navigationupgrade("navigationupgrade", ComponentItem()),
         Pistonupgrade("pistonupgrade", ComponentItem()),
+        Stickypistonupgrade("stickypistonupgrade", ComponentItem()),
         Chunkloaderupgrade("chunkloaderupgrade", ComponentItem()),
         Craftingupgrade("craftingupgrade", ComponentItem()),
         Experienceupgrade("experienceupgrade", ComponentItem()),
@@ -183,18 +170,15 @@ object Components {
 
     fun registerComponents() {
 
-        caseEntityType = Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, "case"),
-            BlockEntityType.Builder.create({ CaseEntity(4) }, Case(4)).build(null))
-
-        BlockEntities.values().iterator().forEach { x ->
+        BlockEntitiesComponent.values().forEach { x ->
             Registry.register(Registry.BLOCK_ENTITY_TYPE, Identifier(OpenComputers.modId, x.id), x.entityType)
         }
 
-        Blocks.values().iterator().forEach { x ->
+        Blocks.values().forEach { x ->
             Registry.register(Registry.BLOCK, Identifier(OpenComputers.modId, x.id), x.block)
         }
 
-        Items.values().iterator().forEach { x ->
+        Items.values().forEach { x ->
             Registry.register(Registry.ITEM, Identifier(OpenComputers.modId, x.id), x.item)
         }
     }

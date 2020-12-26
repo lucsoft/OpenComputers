@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IAI",
+    "DMP",
+    "ICI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "A": {
+      "item": "opencomputers:analyzer"
+    },
+    "D": {
+      "item": "minecraft:dropper"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "tag": "opencomputers:pistons"
+    },
+    "C": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:inventorycontrollerupgrade",
+    "count": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IAI",
+    "MDM",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "A": {
+      "item": "opencomputers:analyzer"
+    },
+    "D": {
+      "item": "opencomputers:hdd1"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:databaseupgrade1",
+    "count": 1
+  }
+}

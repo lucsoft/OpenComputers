@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "SMS",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "C": {
+      "tag": "opencomputers:pistons"
+    }
+  },
+  "result": {
+    "item": "opencomputers:pistonupgrade",
+    "count": 1
+  }
+}

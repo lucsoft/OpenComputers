@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MDI",
+    "PDC",
+    "MDI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "tag": "opencomputers:pistons"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "D": {
+      "item": "opencomputers:disk"
+    }
+  },
+  "result": {
+    "item": "opencomputers:hdd3",
+    "count": 1
+  }
+}

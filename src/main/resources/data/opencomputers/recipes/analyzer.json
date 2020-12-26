@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R  ",
+    "TG ",
+    "PG "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_nugget"
+    },
+    "T": {
+      "item": "opencomputers:transistor"
+    },
+    "R": {
+      "item": "minecraft:redstone_torch"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:analyzer",
+    "count": 1
+  }
+}

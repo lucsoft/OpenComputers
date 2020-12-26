@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IGI",
+    "CMC",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "opencomputers:capacitor"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "opencomputers:charger",
+    "count": 1
+  }
+}

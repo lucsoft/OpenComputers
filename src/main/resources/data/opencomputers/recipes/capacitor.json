@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ITI",
+    "GSG",
+    "IPI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    },
+    "T": {
+      "item": "opencomputers:transistor"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "S": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "opencomputers:capacitor",
+    "count": 1
+  }
+}

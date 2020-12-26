@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "opencomputers:rawcircuitboard"
+  },
+  "result": "opencomputers:printedcircuitboard",
+  "experience":  0.7
+}

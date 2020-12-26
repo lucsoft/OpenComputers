@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EME",
+    "ILI",
+    "EPE"
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:end_stone"
+    },
+    "I": {
+      "item": "minecraft:gold_nugget"
+    },
+    "L": {
+      "item": "minecraft:iron_ingot"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:hoverupgrade2",
+    "count": 1
+  }
+}

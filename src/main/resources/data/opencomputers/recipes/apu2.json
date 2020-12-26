@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IMI",
+    "CBG",
+    "IMI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "opencomputers:cpu3"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "B": {
+      "item": "opencomputers:componentbus2"
+    },
+    "G": {
+      "item": "opencomputers:graphicscard2"
+    }
+  },
+  "result": {
+    "item": "opencomputers:apu2",
+    "count": 1
+  }
+}

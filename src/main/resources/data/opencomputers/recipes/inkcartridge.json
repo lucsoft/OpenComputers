@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CM ",
+    "YB ",
+    "I  "
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:cyan_dye"
+    },
+    "M": {
+      "item": "minecraft:magenta_dye"
+    },
+    "Y": {
+      "item": "minecraft:yellow_dye"
+    },
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "I": {
+      "item": "opencomputers:inkcartridgeempty"
+    }
+  },
+  "result": {
+    "item": "opencomputers:inkcartridge",
+    "count": 1
+  }
+}

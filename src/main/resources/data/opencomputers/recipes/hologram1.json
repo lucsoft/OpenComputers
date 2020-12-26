@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MCM",
+    "PDP",
+    "OGO"
+  ],
+  "key": {
+    "C": {
+      "tag": "opencomputers:glass_panes"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "P": {
+      "item": "opencomputers:printedcircuitboard"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "D": {
+      "item": "opencomputers:diamond_nugget"
+    },
+    "G": {
+      "item": "minecraft:glowstone_dust"
+    }
+  },
+  "result": {
+    "item": "opencomputers:hologram1",
+    "count": 1
+  }
+}

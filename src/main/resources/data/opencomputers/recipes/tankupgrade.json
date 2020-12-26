@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "IHI",
+    "DCP",
+    "IMI"
+  ],
+  "key": {
+    "I": {
+      "tag": "minecraft:planks"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "M": {
+      "item": "opencomputers:microchip1"
+    },
+    "P": {
+      "tag": "opencomputers:pistons"
+    },
+    "C": {
+      "item": "minecraft:cauldron"
+    },
+    "H": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "result": {
+    "item": "opencomputers:tankupgrade",
+    "count": 1
+  }
+}

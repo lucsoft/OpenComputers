@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WMT",
+    " CO",
+    "   "
+  ],
+  "key": {
+    "W": {
+      "item": "opencomputers:interweb"
+    },
+    "M": {
+      "item": "opencomputers:microchip2"
+    },
+    "T": {
+      "item": "minecraft:redstone_torch"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "C": {
+      "item": "opencomputers:card"
+    }
+  },
+  "result": {
+    "item": "opencomputers:internetcard",
+    "count": 1
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "E E",
+    "CWC",
+    "M M"
+  ],
+  "key": {
+    "W": {
+      "item": "opencomputers:interweb"
+    },
+    "M": {
+      "item": "opencomputers:microchip3"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "C": {
+      "item": "opencomputers:lancard"
+    }
+  },
+  "result": {
+    "item": "opencomputers:linkedcard",
+    "count": 2
+  }
+}
