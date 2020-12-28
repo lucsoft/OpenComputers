@@ -67,8 +67,6 @@ class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Te
             )
         }
         addButton(powerButton)
-
-
     }
 
     companion object {

@@ -184,8 +184,5 @@ object Components {
     }
 
     val CASE1 = Case(1)
-    val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerSimple(Identifier(OpenComputers.modId)) { syncId, inventory ->
-        CaseScreenHandler(syncId, inventory, 0)
-    }
-
+    val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerExtended(Identifier(OpenComputers.modId), ::CaseScreenHandler)
 }
