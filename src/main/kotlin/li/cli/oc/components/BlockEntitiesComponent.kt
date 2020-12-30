@@ -14,7 +14,7 @@ enum class BlockEntitiesComponent(val id: String, val entityType: BlockEntityTyp
     Cable               ("cable",               makeType({ Cable() }, Blocks.Cable)),
     Capacitor           ("capacitor",           makeType({ Capacitor() }, Blocks.Capacitor)),
     CarpatedCapacitor   ("carpetedcapacitor",   makeType({ CarpetedCapacitor() }, Blocks.CarpetedCapacitor)),
-    Case                ("case",                makeType({ CaseEntity()}, Case(4))),
+    Case                ("case",                makeType({ CaseEntity(4)}, Case(4))),
     Charger             ("charger",             makeType({ Charger()}, Blocks.Charger)),
     Disassembler        ("disassembler",        makeType({ Disassembler() }, Blocks.Disassembler)),
     DiskDrive           ("diskdrive",           makeType({ DiskDrive() }, Blocks.DiskDrive)),

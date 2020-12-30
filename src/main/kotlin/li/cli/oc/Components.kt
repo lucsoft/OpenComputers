@@ -2,12 +2,16 @@ package li.cli.oc
 
 import li.cli.oc.blocks.*
 import li.cli.oc.components.BlockEntitiesComponent
+import li.cli.oc.client.gui.blocks.CaseScreen
+import li.cli.oc.client.gui.blocks.CaseScreenHandler
 import li.cli.oc.items.Analyzer
 import li.cli.oc.items.Debugger
 import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.items.commons.ComponentItem
 import net.minecraft.block.Block
 import net.minecraft.item.Item
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry
+import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
@@ -178,4 +182,7 @@ object Components {
             Registry.register(Registry.ITEM, Identifier(OpenComputers.modId, x.id), x.item)
         }
     }
+
+    val CASE1 = Case(1)
+    val CASE_SCREEN_HANDLER: ScreenHandlerType<CaseScreenHandler> = ScreenHandlerRegistry.registerExtended(Identifier(OpenComputers.modId), ::CaseScreenHandler)
 }

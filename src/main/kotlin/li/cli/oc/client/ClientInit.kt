@@ -4,14 +4,16 @@ import li.cli.oc.Components
 import li.cli.oc.OpenComputers
 import li.cli.oc.blocks.Case
 import li.cli.oc.blocks.Screen
+import li.cli.oc.client.gui.blocks.CaseScreen
 import li.cli.oc.items.commons.ComponentBlockItem
 import li.cli.oc.render.BaseModelProvider
-import li.cli.oc.render.block.CableModel
 import li.cli.oc.render.block.ScreenModel
+import li.cli.oc.render.block.CableModel
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.client.render.RenderLayer
 import net.minecraft.item.ItemStack
@@ -24,6 +26,7 @@ object ClientInit : ClientModInitializer {
 
         ModelLoadingRegistry.INSTANCE.registerResourceProvider { BaseModelProvider(Identifier(OpenComputers.modId, "block/cable"), CableModel()) }
         ModelLoadingRegistry.INSTANCE.registerResourceProvider { BaseModelProvider(Identifier(OpenComputers.modId, "block/screen"), ScreenModel()) }
+
 
         ColorProviderRegistry.BLOCK.register(handleBlockColor,
             Components.Blocks.CaseOne.block,
@@ -46,6 +49,8 @@ object ClientInit : ClientModInitializer {
         )
 
         BlockRenderLayerMap.INSTANCE.putBlock(Components.Blocks.Assembler.block, RenderLayer.getTranslucent());
+
+        ScreenRegistry.register(Components.CASE_SCREEN_HANDLER, ::CaseScreen)
     }
 
     private  val handleItemColor = fun (item: ItemStack, tintIndex: Int): Int {
