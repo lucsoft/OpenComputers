@@ -30,11 +30,9 @@ class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Te
         client!!.textureManager.bindTexture(SLOT_TEXTURE)
         val tier = (handler as CaseScreenHandler).tier
 
-        var slotMatrix = MatrixStack()
-        slotMatrix.push()
-        slotMatrix.translate(0.0, 0.0, 5.0)
+        drawTexture(matrices, x + 42, y + 34, 0, 0, 18, 18)
 
-        drawTexture(slotMatrix, x + 42, y + 34, 0, 0, 18, 18)
+        drawInvSlots(tier!!, x, y) // Tier should almost certainly be set by the time we are drawing the background
     }
 
 
@@ -67,6 +65,26 @@ class CaseScreen(handler: ScreenHandler?, inventory: PlayerInventory?, title: Te
             )
         }
         addButton(powerButton)
+    }
+
+    private fun drawInvSlots(tier: Int, x: Int, y: Int) {
+        var invSlotMatrix = MatrixStack()
+
+        client!!.textureManager.bindTexture(SLOT_TEXTURE)
+
+        val xOffset = 93
+        val yOffset = 12
+
+        //drawTexture(invSlotMatrix, x + xOffset, y + yOffset, 0, 0, 18, 18)
+
+        drawTexture(invSlotMatrix, x + xOffset + 3, y + yOffset + 3, 0, 0, 18, 18)
+        drawTexture(invSlotMatrix, x + xOffset + 3, y + yOffset + 21, 0, 0, 18, 18)
+
+        drawTexture(invSlotMatrix, x + xOffset + 3 + 18 + 5, y + yOffset + 3, 0, 0, 18, 18)
+        drawTexture(invSlotMatrix, x + xOffset + 3 + 18 + 5, y + yOffset + 21, 0, 0, 18, 18)
+        drawTexture(invSlotMatrix, x + xOffset + 3 + 18 + 5, y + yOffset + 39, 0, 0, 18, 18)
+
+        drawTexture(invSlotMatrix, x + xOffset + 3 + 36 + 10, y + yOffset + 3, 0, 0, 18, 18)
     }
 
     companion object {
