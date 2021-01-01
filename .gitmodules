@@ -1,0 +1,3 @@
+[submodule "OverWasm"]
+	path = OverWasm
+	url = https://github.com/lucsoft/OverWasm.git
