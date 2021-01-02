@@ -18,7 +18,7 @@ A few useful links:
 You can find experimental builds [over github actions][gactions]. Expect these to be generally more unstable than builds marked as releases. Use these **at your own risk**, but - when using the latest one - please *do* report bugs you encounter using them. Thanks!
 
 ## License / Use in Modpacks
-This mod is [licensed under the **MIT license**](https://github.com/MightyPirates/OpenComputers/blob/master-MC1.7.10/LICENSE). All **assets are public domain**, unless otherwise stated; all are free to be distributed as long as the license / source credits are kept. This means you can use this mod in any mod pack **as you please**. I'd be happy to hear about you using it, though, just out of curiosity.
+This mod is [licensed under the **MIT license**](https://github.com/lucsoft/OpenComputers/blob/master-MC1.16/LICENSE). All **assets are public domain**, unless otherwise stated; all are free to be distributed as long as the license / source credits are kept. This means you can use this mod in any mod pack **as you please**. I'd be happy to hear about you using it, though, just out of curiosity.
 
 ## Contributing
 ### Assets and Localizations
@@ -95,22 +95,22 @@ In the case you wish to use Eclipse rather than IntelliJ IDEA, the process is mo
 
 
 
-[api]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/java/li/cil/oc/api
+[api]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/java/li/cil/oc/api
 [code conventions]: https://ocdoc.cil.li/lua_conventions
 [dev-jar]: https://ci.cil.li/view/OpenComputers/job/OpenComputers-MC1.7.10/
 [forums]: https://oc.cil.li/
 [irc]: http://webchat.esper.net/?channels=#oc
-[issues]: https://github.com/MightyPirates/OpenComputers/issues?state=open
+[issues]: https://github.com/lucsoft/OpenComputers/issues?state=open
 [gactions]: https://nightly.link/lucsoft/OpenComputers/workflows/build/master-MC1.16/Artifacts
-[localizations]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/resources/assets/opencomputers/lang
-[loot]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/resources/assets/opencomputers/loot
-[manpages]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/resources/assets/opencomputers/loot/OpenOS/usr/man
-[manual]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/resources/assets/opencomputers/doc
+[localizations]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/resources/assets/opencomputers/lang
+[loot]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/resources/assets/opencomputers/loot
+[manpages]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/resources/assets/opencomputers/loot/OpenOS/usr/man
+[manual]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/resources/assets/opencomputers/doc
 [mcf]: http://www.minecraftforum.net/topic/2201440-opencomputers-v122/
-[pack.mcmeta]: https://github.com/MightyPirates/OpenComputers/blob/master-MC1.7.10/src/main/resources/pack.mcmeta
-[releases]: https://github.com/MightyPirates/OpenComputers/releases
-[robot names]: https://github.com/MightyPirates/OpenComputers/blob/master-MC1.7.10/src/main/resources/assets/opencomputers/robot.names
+[pack.mcmeta]: https://github.com/lucsoft/OpenComputers/blob/master-MC1.16/src/main/resources/pack.mcmeta
+[releases]: https://github.com/lucsoft/OpenComputers/releases
+[robot names]: https://github.com/lucsoft/OpenComputers/blob/master-MC1.16/src/main/resources/assets/opencomputers/robot.names
 [wiki]: https://ocdoc.cil.li/
-[integration]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/scala/li/cil/oc/integration
-[ingame manual]: https://github.com/MightyPirates/OpenComputers/tree/master-MC1.7.10/src/main/resources/assets/opencomputers/doc
+[integration]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/scala/li/cil/oc/integration
+[ingame manual]: https://github.com/lucsoft/OpenComputers/tree/master-MC1.16/src/main/resources/assets/opencomputers/doc
 [idea_1.7.10]: https://ocdoc.cil.li/tutorial:debug_1.7.10
