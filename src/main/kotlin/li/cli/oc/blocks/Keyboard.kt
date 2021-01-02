@@ -19,7 +19,7 @@ import net.minecraft.util.shape.VoxelShape
 import net.minecraft.world.BlockView
 
 
-class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
+class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f).nonOpaque()) {
 
     val pitch = States.Pitch;
     val yaw = States.Yaw;

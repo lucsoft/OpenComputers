@@ -9,7 +9,7 @@ import net.minecraft.block.entity.BlockEntity
 import net.minecraft.world.BlockView
 
 
-class PowerConverter: TecBlock(FabricBlockSettings.of(Material.METAL)) {
+class PowerConverter: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f)) {
 
     override fun emitsRedstonePower(state: BlockState?): Boolean {
         return false

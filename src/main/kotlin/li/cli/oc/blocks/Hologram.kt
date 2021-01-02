@@ -14,7 +14,7 @@ import net.minecraft.util.shape.VoxelShapes
 import net.minecraft.world.BlockView
 
 
-class Hologram: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
+class Hologram: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f).nonOpaque()) {
 
     override fun emitsRedstonePower(state: BlockState?): Boolean {
         return false

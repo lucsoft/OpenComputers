@@ -13,7 +13,7 @@ import net.minecraft.util.shape.VoxelShapes
 import net.minecraft.world.BlockView
 import net.minecraft.world.World
 
-class Cable: BlockWithEntity(FabricBlockSettings.of(Material.METAL).nonOpaque()), OCNetwork {
+class Cable: BlockWithEntity(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f).nonOpaque()), OCNetwork {
 
     override fun getRenderType(state: BlockState?): BlockRenderType {
         return  BlockRenderType.MODEL
