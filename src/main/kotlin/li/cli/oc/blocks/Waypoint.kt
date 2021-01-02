@@ -1,14 +1,17 @@
 package li.cli.oc.blocks
 
+import li.cli.oc.blockentity.Waypoint
 import li.cli.oc.blocks.commons.States
 import li.cli.oc.blocks.commons.TecBlock
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.Material
+import net.minecraft.block.entity.BlockEntity
 import net.minecraft.item.ItemPlacementContext
 import net.minecraft.state.StateManager
 import net.minecraft.util.math.Direction
+import net.minecraft.world.BlockView
 
 
 class Waypoint: TecBlock(FabricBlockSettings.of(Material.METAL)) {
@@ -36,5 +39,9 @@ class Waypoint: TecBlock(FabricBlockSettings.of(Material.METAL)) {
             currentpitch = ctx.playerLookDirection.opposite;
 
         return this.defaultState.with(pitch, currentpitch).with(yaw, ctx?.playerFacing?.opposite);
+    }
+
+    override fun createBlockEntity(world: BlockView?): BlockEntity? {
+        return Waypoint()
     }
 }

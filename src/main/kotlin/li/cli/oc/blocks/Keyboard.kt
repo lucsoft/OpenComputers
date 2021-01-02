@@ -1,5 +1,6 @@
 package li.cli.oc.blocks
 
+import li.cli.oc.blockentity.Keyboard
 import li.cli.oc.blocks.commons.TecBlock
 import li.cli.oc.blocks.commons.States
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
@@ -12,6 +13,7 @@ import net.minecraft.state.StateManager
 import net.minecraft.util.math.Direction
 import net.minecraft.util.shape.VoxelShapes
 import net.minecraft.block.ShapeContext
+import net.minecraft.block.entity.BlockEntity
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.shape.VoxelShape
 import net.minecraft.world.BlockView
@@ -52,5 +54,9 @@ class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
             Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.0, 0.06, 0.75, 0.07, 0.94)
             else -> null!!
         }
+    }
+
+    override fun createBlockEntity(world: BlockView?): BlockEntity? {
+        return Keyboard()
     }
 }
