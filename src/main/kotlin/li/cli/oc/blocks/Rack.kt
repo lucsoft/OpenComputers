@@ -13,7 +13,7 @@ import net.minecraft.state.StateManager
 import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView
 
-class Rack: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f)) {
+class Rack: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(1.5f).resistance(2.5f)) {
 
     val facing = HorizontalFacingBlock.FACING
 

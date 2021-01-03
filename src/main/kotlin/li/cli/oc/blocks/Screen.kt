@@ -17,7 +17,7 @@ import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView
 import net.minecraft.world.World
 
-class Screen(var Tier: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f)) {
+class Screen(var Tier: Int) : TecBlock(FabricBlockSettings.of(Material.METAL).hardness(1.5f).resistance(2.5f)) {
 
     override fun getColor(): Int {
         return Color.getTearColors(Tier - 1)

@@ -14,7 +14,7 @@ import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView
 
 
-class Waypoint: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(2.5f).resistance(2.5f)) {
+class Waypoint: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(1.5f).resistance(2.5f)) {
 
     val pitch = States.Pitch;
     val yaw = States.Yaw;
