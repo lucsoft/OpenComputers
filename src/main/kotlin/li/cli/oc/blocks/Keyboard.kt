@@ -49,12 +49,27 @@ class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).nonOpaque()) {
 
     override fun getOutlineShape(state: BlockState?, view: BlockView?, pos: BlockPos?, context: ShapeContext?): VoxelShape? {
         //TODO Add more shape styles
-        return when(state?.get(yaw)) {
-            Direction.SOUTH -> VoxelShapes.cuboid(0.06, 0.25, 0.0, 0.94, 0.75, 0.07)
-            Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.25, 0.93, 0.94, 0.75, 1.0)
-            Direction.WEST -> VoxelShapes.cuboid(0.93, 0.25, 0.06, 1.0, 0.75, 0.94)
-            Direction.EAST -> VoxelShapes.cuboid(0.0, 0.25, 0.06, 0.07, 0.75, 0.94)
-            else -> null!!
+        return when(state?.get(pitch)) {
+            Direction.UP -> when(state.get(yaw)) {
+                Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.0, 0.25, 0.94, 0.07, 0.75)
+                Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.0, 0.06, 0.75, 0.07, 0.94)
+
+                else -> null!!
+            }
+            Direction.DOWN -> when(state.get(yaw)) {
+                Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.93, 0.25, 0.94, 1.0, 0.75)
+                Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.93, 0.06, 0.75, 1.0, 0.94)
+
+                else -> null!!
+            }
+            else -> when(state?.get(yaw)) {
+                Direction.SOUTH -> VoxelShapes.cuboid(0.06, 0.25, 0.0, 0.94, 0.75, 0.07)
+                Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.25, 0.93, 0.94, 0.75, 1.0)
+                Direction.WEST -> VoxelShapes.cuboid(0.93, 0.25, 0.06, 1.0, 0.75, 0.94)
+                Direction.EAST -> VoxelShapes.cuboid(0.0, 0.25, 0.06, 0.07, 0.75, 0.94)
+
+                else -> null!!
+            }
         }
     }
 
