@@ -35,7 +35,7 @@ class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(1.5f).r
         var currentyaw = ctx?.playerFacing;
         if(ctx?.playerLookDirection === Direction.UP || ctx?.playerLookDirection === Direction.DOWN)
             currentpitch = ctx.playerLookDirection.opposite;
-        if(currentpitch == Direction.NORTH)
+        if(currentpitch == Direction.NORTH || currentpitch == Direction.DOWN)
             currentyaw = currentyaw?.opposite;
         return this.defaultState.with(pitch, currentpitch).with(yaw, currentyaw);
     }
@@ -51,20 +51,20 @@ class Keyboard: TecBlock(FabricBlockSettings.of(Material.METAL).hardness(1.5f).r
     override fun getOutlineShape(state: BlockState?, view: BlockView?, pos: BlockPos?, context: ShapeContext?): VoxelShape? {
         return when(state?.get(pitch)) {
             Direction.UP -> when(state.get(yaw)) {
-                Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.0, 0.25, 0.94, 0.07, 0.75)
-                Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.0, 0.06, 0.75, 0.07, 0.94)
+                Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.0, 0.25, 0.94, 0.065, 0.75)
+                Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.0, 0.06, 0.75, 0.065, 0.94)
                 else -> null
             }
             Direction.DOWN -> when(state.get(yaw)) {
-                Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.93, 0.25, 0.94, 1.0, 0.75)
-                Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.93, 0.06, 0.75, 1.0, 0.94)
+                Direction.SOUTH, Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.935, 0.25, 0.94, 1.0, 0.75)
+                Direction.WEST, Direction.EAST -> VoxelShapes.cuboid(0.25, 0.935, 0.06, 0.75, 1.0, 0.94)
                 else -> null
             }
             else -> when(state?.get(yaw)) {
-                Direction.SOUTH -> VoxelShapes.cuboid(0.06, 0.25, 0.0, 0.94, 0.75, 0.07)
-                Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.25, 0.93, 0.94, 0.75, 1.0)
-                Direction.WEST -> VoxelShapes.cuboid(0.93, 0.25, 0.06, 1.0, 0.75, 0.94)
-                Direction.EAST -> VoxelShapes.cuboid(0.0, 0.25, 0.06, 0.07, 0.75, 0.94)
+                Direction.SOUTH -> VoxelShapes.cuboid(0.06, 0.25, 0.0, 0.94, 0.75, 0.065)
+                Direction.NORTH -> VoxelShapes.cuboid(0.06, 0.25, 0.935, 0.94, 0.75, 1.0)
+                Direction.WEST -> VoxelShapes.cuboid(0.935, 0.25, 0.06, 1.0, 0.75, 0.94)
+                Direction.EAST -> VoxelShapes.cuboid(0.0, 0.25, 0.06, 0.065, 0.75, 0.94)
                 else -> null
             }
         }
