@@ -3,7 +3,7 @@
 ![build](https://github.com/lucsoft/OpenComputers/workflows/build/badge.svg)
 [![nightly](https://img.shields.io/badge/Builds-nightly-blue)](https://nightly.link/lucsoft/OpenComputers/workflows/build/master-MC1.16/Artifacts.zip)
 
-OpenComputers is a Minecraft mod that adds programmable computers and robots to the game. The built-in computer implementation uses Lua 5.2 and is fully persistent. This means programs will continue running across reloads. For more information, please [see the wiki][wiki]. Feel invited to visit the [community forums][forums] or drop by in the [IRC channel #oc on esper.net][irc].
+OpenComputers is a Minecraft mod that adds programmable computers and robots to the game. The built-in computer implementation uses Lua 5.4 and is fully persistent. This means programs will continue running across reloads. For more information, please [see the wiki][wiki]. Feel invited to visit the [community forums][forums] or drop by in the [IRC channel #oc on esper.net][irc].
 
 A few useful links:
 * [Minecraft Forum Thread][mcf]
@@ -18,12 +18,12 @@ A few useful links:
 You can find experimental builds [over github actions][gactions]. Expect these to be generally more unstable than builds marked as releases. Use these **at your own risk**, but - when using the latest one - please *do* report bugs you encounter using them. Thanks!
 
 ## License / Use in Modpacks
-This mod is [licensed under the **MIT license**](https://github.com/MightyPirates/OpenComputers/blob/master-MC1.7.10/LICENSE). All **assets are public domain**, unless otherwise stated; all are free to be distributed as long as the license / source credits are kept. This means you can use this mod in any mod pack **as you please**. I'd be happy to hear about you using it, though, just out of curiosity.
+This mod is [licensed under the **CC0 1.0 license**](https://github.com/MightyPirates/OpenComputers/blob/master-MC1.7.10/LICENSE). All **assets are public domain**, unless otherwise stated; all are free to be distributed as long as the license / source credits are kept. This means you can use this mod in any mod pack **as you please**. I'd be happy to hear about you using it, though, just out of curiosity.
 
 ## Contributing
 ### Assets and Localizations
 1. **Translations**  
-   Translations to other languages are very much appreciated. You can find the localization files [in this folder][localizations]. If a localization you wanted to create already exists, please take the time to see if the present one is complete - the strings change every so often, invalidating some of the translations. If you start a fresh localization, please base it off of the English or German one, those are the 'master' localization files. If you add a new language, please also add it to [the pack.mcmeta][pack.mcmeta] file. Keep it sorted alphabetically, use the name and region Minecraft itself uses. If you don't know how to do that, that's OK, I'll do it later.
+   Translations to other languages are very much appreciated. You can find the localization files [in this folder][localizations]. If a localization you wanted to create already exists, please take the time to see if the present one is complete - the strings change every so often, invalidating some of the translations. If you start a fresh localization, please base it off of the English or German one, those are the 'master' localization files. If you add a new language, please use the name and region Minecraft itself uses. If you don't know how to do that, that's OK, I'll do it later.
 2. **Textures**  
    If you would like to contribute better textures for certain items or blocks, feel free to pull-request them. If you would like to contribute *alternative* textures, make it a resource pack, and post it on the forums, for example.
 3. **Documentation**  
@@ -47,9 +47,8 @@ This mod is [licensed under the **MIT license**](https://github.com/MightyPirate
 #### Pull requests
 The following are a few quick guidelines on pull requests. That is to say they are not necessarily *rules*, so there may be exceptions and all that. Just try to stick to those points as a baseline.
 - Make sure your code is formatted properly.
-- Make sure it builds and works.
+- Make sure it builds and works (This will be shown in the Pull Request Page).
 - Try to keep your changes as minimal as possible. In particular, no whitespace changes in existing files, please.
-- Feel free to code in Java, but don't be surprised if I convert it to Scala later on, if I feel it makes the code more concise ;-)
 - When adding mod dependencies, keep them *weak*, i.e. make sure OC still works without that mod. Also, prefer adding a Gradle dependency over adding API class files to the repo.
 - [Squash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) your commits!
 
@@ -57,6 +56,10 @@ Also, and this should go without saying, your contributed code will also fall un
 
 ## Extending
 ### In your own mod
+
+> Currently, the API is not ready to use
+
+<!--
 To use [the API][api] in your own mod, either get the API JAR from the [build server][gactions], or if you're using [Gradle](http://gradle.org/), add a dependency to the maven repo:
 ```groovy
 repositories {
@@ -73,13 +76,13 @@ To run the mod in your development environment, download the [`dev` JAR from the
 Alternatively, leave out the `api` classifier and you can build against the dev JAR directly. This way you don't have to add it to your mods folder, but you will have to add `-Dfml.coreMods.load=li.cil.oc.common.launch.TransformerLoader` to the VM options in your run configuration.
 
 If you have any questions, please do not hesitate to ask, either in the [forums][] or in the [IRC][irc]!
-
+-->
 ### OpenComputers
 Want to tinker with the mod itself? Here is how - for IntelliJ IDEA users.
 
 **Important**
 - Make sure you have the Gradle plugin enabled in IntelliJ IDEA (File->Settings->Plugins).
-- Make sure you have the Scala plugin enabled.
+- Make sure you have the Kotlin plugin enabled.
 
 Clone the repository, then in it run  
 `gradlew setupDecompWorkspace`  

@@ -31,6 +31,10 @@ dependencies {
 
     include "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
 
+    // https://mvnrepository.com/artifact/org.graalvm.sdk/graal-sdk
+    compile group: 'org.graalvm.sdk', name: 'graal-sdk', version: '20.3.0'
+    implementation 'org.graalvm.truffle:truffle-tck:20.3.0'
+    implementation 'org.graalvm.compiler:compiler:20.3.0'
 }
 
 processResources {
