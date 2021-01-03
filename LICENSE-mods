@@ -1,4 +1,0 @@
-OpenComputers uses APIs from a couple of other mods.
-
-For each of these their individual licenses apply; OC only uses them during
-compilation, it does not bundle any of these APIs in the built JAR files.
