@@ -1,0 +1,51 @@
+{
+  "computer_running": {
+    "category": "block",
+    "subtitle": "subtitles.opencomputers.computer",
+    "sounds": [
+      {
+        "name": "opencomputers:computer_running",
+        "stream": true
+      }
+    ]
+  },
+  "floppy_access": {
+    "category": "block",
+    "subtitle": "subtitles.opencomputers.floppy",
+    "sounds": [
+      "opencomputers:floppy_access1",
+      "opencomputers:floppy_access2",
+      "opencomputers:floppy_access3",
+      "opencomputers:floppy_access4",
+      "opencomputers:floppy_access5",
+      "opencomputers:floppy_access6"
+    ]
+  },
+  "floppy_eject": {
+    "category": "block",
+    "subtitle": "subtitles.opencomputers.floppy_eject",
+    "sounds": [
+      "opencomputers:floppy_eject"
+    ]
+  },
+  "floppy_insert": {
+    "category": "block",
+    "subtitle": "subtitles.opencomputers.floppy_insert",
+    "sounds": [
+      "opencomputers:floppy_insert"
+    ]
+  },
+  "hdd_access": {
+    "category": "block",
+    "subtitle": "subtitles.opencomputers.hdd",
+    "sounds": [
+      "opencomputers:hdd_access1",
+      "opencomputers:hdd_access2",
+      "opencomputers:hdd_access3",
+      "opencomputers:hdd_access4",
+      "opencomputers:hdd_access5",
+      "opencomputers:hdd_access6",
+      "opencomputers:hdd_access7"
+    ]
+  }
+}
