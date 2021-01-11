@@ -1,3 +1,7 @@
+# I teamed up with Sanger to bring [OC2](https://github.com/fnuecke/oc2/) to Forge & Fabric
+## This project is currently on hold
+
+
 ![Welcome to OpenComputers](src/main/resources/assets/opencomputers/banner.png)
 
 ![build](https://github.com/lucsoft/OpenComputers/workflows/build/badge.svg)
