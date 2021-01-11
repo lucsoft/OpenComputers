@@ -1,4 +1,4 @@
-# I teamed up with Sanger to bring [OC2](https://github.com/fnuecke/oc2/) to Forge & Fabric
+# I teamed up with Sangar to bring [OC2](https://github.com/fnuecke/oc2/) to Forge & Fabric
 ## This project is currently on hold
 
 
